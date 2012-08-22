@@ -1,0 +1,571 @@
+%\XeTeXinputnormalization=1 % normalise to NFC form, using precomposed characters where possible instead base characters with combining marks.
+\input fixinsert
+\newdimen\frontmarginsep
+\catcode`@=11
+% folio (Fo): 12"*15", quarto (4to): 9.5"*12", octavo (8vo): 6"*9", duodecimo (12mo): 5"*7.0375
+% PRIME!
+% Unicode N??? Extended XeTeX Plain
+% Vieth math aesthetics formulation scaling factors {7\over10} for 10pt,
+% {5\over7} for 7pt {5\over5} for 5pt
+\input mchardefs
+\mcode`\,="6"1`,
+\mcode`\.="6"1`.
+\delimcode`\|="0"007C
+\mcode`\|="0"0"007C
+\delimcode`\<="0"027E8
+\delimcode`\>="0"027E9
+\mcode`\-="2"0"2212
+\mcode`\/="0"0"2215
+%\XeTeXdelcode`\/="0"2044
+%\XeTeXmathcode`\/="0"0"2044
+\mcode`\*="2"0"2217
+\def\sqrt{\mradical"0"221A }
+%\def\hat{\XeTeXmathaccent"7"0"002C6 } % Barbara's table uses the wide variants
+%\def\check{\XeTeXmathaccent"7"0"002C7 }
+%\def\bar{\XeTeXmathaccent"7"0"002C9 }
+%\def\breve{\XeTeXmathaccent"7"0"002D8 }
+\chardef\ttilde="007E
+\def\tilde{\maccent"7"0"002DC }
+%\def\widetilde{\maccent"7"0"0360 }
+\def\ldots{\mathinner{\char"2026}}
+\def\cdots{\mathinner{\char"22EF}}
+\def\ddots{\mathinner{\char"22F1}}
+\def\rddots{\mathinner{\char"22F0}}
+\def\vdots{\mathinner{\char"22EE}}
+%
+\newfam\frakbffam\newfam\frakfam\newfam\scriptbffam\newfam\scriptfam\newfam\sansbfitfam\newfam\sansbffam\newfam\sansitfam\newfam\sansfam
+%
+\def\setMathType "#1" #2 {% font_name, font_size (in bp)
+\ifdefined\loadedMathFont\else\gdef\loadedMathFont{#1}\fi%
+\ifdefined\mathSize\else\gdef\mathSize{#2}\fi%
+%
+\def\hex##1{\ifcase##10\or1\or2\or3\or4\or5\or6\or7\or8\or9\or%
+  A\or B\or C\or D\or E\or F\fi}%
+%
+\def\loadMathFont##1##2##3{% font name, options, family number
+  \def\opts{script=math;mode=base}%
+  \expandafter\font\csname##1\endcsname="#1:\opts;##2" at #2 true bp%
+  \expandafter\font\csname##1s\endcsname="#1:\opts;+ssty0;##2" scaled 700%
+  \expandafter\font\csname##1ss\endcsname="#1:\opts;+ssty1;##2" scaled 500%
+  \textfont##3=\csname##1\endcsname%
+  \scriptfont##3=\csname##1s\endcsname%
+  \scriptscriptfont##3=\csname##1ss\endcsname}%
+%
+\loadMathFont{mathrm}{}{0}%
+\ifdefined\testLatinModern\else\def\testLatinModern{Latin Modern Math}\fi%
+\ifx\loadedMathFont\testLatinModern%
+  \gdef\cong{\mathrel{\mathpalette\@vereq\sim}}% redef to plain
+  \gdef\notin{\mathrel{\mathpalette\c@ncel\in}}% ditto
+  \gdef\coleq{:=}%
+  \mcode`\/="0"0"2044%
+\fi%
+% Italic
+  \ifdefined\testEuler\else\def\testEuler{Neo Euler}\fi%
+  % Neo Euler doesn't have italic, so dont map
+  \ifx\loadedMathFont\testEuler%
+    \textfont1=\mathrm\scriptfont1=\mathrms\scriptscriptfont1=\mathrmss%
+    \mcode`\/="0"0"2044%
+  \else%
+    \loadMathFont{mathit}{mapping=italic}{1}%
+  \fi%
+% Calligraphic
+  \ifdefined\testAsana\else\def\testAsana{Asana Math}\fi%
+  \ifx\loadedMathFont\testAsana%
+    % Asana uses Stylistic Alternates over script
+    \loadMathFont{mathcal}{mapping=script;+salt}{2}%
+  \else%
+    % XITS and Neo Euler use Stylistic Set 1 over script
+    \loadMathFont{mathcal}{mapping=script;+ss01}{2}%
+  \fi%
+\loadMathFont{mathbi}{mapping=bold italic}{3}%
+\gdef\mib{\fam3}%
+% Double-struck (aka Blackboard bold)
+  \ifx\loadedMathFont\testEuler%
+    \gdef\bb{\fam6}% Neo Euler doesn't have double-struck, so map it to bold
+    % and some other stuff...
+    \gdef\coloneq{:=}%
+  \else%
+    \loadMathFont{mathbb}{mapping=double-struck}{4}%
+    \gdef\bb{\fam4}%
+  \fi%
+\loadMathFont{mathsl}{slant=0.2}{5}%
+\loadMathFont{mathbf}{mapping=bold}{6}%
+\loadMathFont{mathtt}{mapping=monospace}{7}%
+% Fraktur
+  \gdef\frakbf{\tenbf\fam\frakbffam}%
+  \loadMathFont{mathfrakbf}{mapping=fraktur bold}{"\hex\frakbffam}%
+  %
+  \gdef\frak{\let\bf\frakbf\fam\frakfam}%
+  \loadMathFont{mathfrak}{mapping=fraktur}{"\hex\frakfam}%
+% Script
+  \gdef\scrbf{\tenbf\fam\scriptbffam}%
+  \loadMathFont{mathscrbf}{mapping=script bold}{"\hex\scriptbffam}%
+  %
+  \gdef\scr{\let\bf\scrbf\fam\scriptfam}%
+  \loadMathFont{mathscr}{mapping=script}{"\hex\scriptfam}%
+% Sans-serif
+  \gdef\sfbfit{\fam\sansbfitfam}%
+  \loadMathFont{mathsfbfit}{mapping=sans-serif bold italic}{"\hex\sansbfitfam}%
+  %
+  \gdef\sfbf{\tenbf\fam\sansbffam\let\it\sfbfit}%
+  \loadMathFont{mathsfbf}{mapping=sans-serif bold}{"\hex\sansbffam}%
+  %
+  \gdef\sfit{\tenit\fam\sansitfam\let\bf\sfbfit}%
+  \loadMathFont{mathsfit}{mapping=sans-serif italic}{"\hex\sansitfam}%
+  %
+  \gdef\sf{\let\bf\sfbf\let\it\sfit\fam\sansfam}%
+  \loadMathFont{mathsf}{mapping=sans-serif}{"\hex\sansfam}%
+  %
+  % make it work both ways: \scr\bf or \bf\scr
+  %\def\bf{\let\frak\frakbf\let\scr\scrbf\let\sf\sfbf\let\it\mib\tenbf\fam6 }
+  %\def\it{\let\sf\sfit\let\bf\mib\tenit\fam1 }
+  %
+  \def\symbolfont{\textfont2}%
+  \def\extensionfont{\textfont3}%
+  %
+  \def\mathsrulethickness{\fontdimen8}%
+  \def\xheight{\fontdimen5}%
+  \def\superscriptdrop{\fontdimen18}%
+  \def\subscriptdrop{\fontdimen19}%
+  \def\mathaxis{\fontdimen22}%
+  %
+  \thinmuskip=2.25mu% 3mu
+  \medmuskip=3mu minus.75mu% 4mu plus2mu minus4mu
+  \thickmuskip=4.5mu minus.9mu%minus0.9mu plus4.5mu % 5mu plus5mu
+  %
+  \delimitershortfall=\xheight\textfont0% 5pt
+  \nulldelimiterspace=\fontdimen4\textfont0% 1.2pt
+  \scriptspace=\fontdimen4\textfont0% 0.5pt
+}
+\def\{{\ifmmode\lbrace\else\char`\{\fi}%
+\def\}{\ifmmode\rbrace\else\char`\}\fi}%
+\let\|=\Vert
+\let\to\rightarrow
+\let\gets\leftarrow
+\let\coleq\coloneq
+\let\land\wedge
+\let\lor\vee
+\def\pmod#1{\allowbreak\;({\rm mod}\>#1)}
+%\let\overline\overbar
+\let\neq\ne
+\def\iff{\;\Longleftrightarrow\;}
+\def\setminus{\delim"2"0"005C } % Barbara's table uses smallsetminus
+\def\underbrace{\maccent"7"0"23DF }
+%\def\overline{\maccent"7"0"203E }
+\def\overbrace{\maccent"7"0"23DE }
+\def\underbrace{\maccent"7"0"23DF }
+\def\macron{\maccent"7"0"035E }
+%
+%\mathcode‘\ ="8000 %\mathcode‘\(="4028 %\mathcode‘\+="202B %\mathcode‘\.="013A %\mathcode‘\;="603B %\mathcode‘\>="313E %\mathcode‘\\="026E %\mathcode‘\{="4266 %\mathcode‘\!="5021 %\mathcode‘\)="5029 %\mathcode‘\,="613B %\mathcode‘\/="013D %\mathcode‘\<="313C %\mathcode‘\?="503F %\mathcode‘\]="505D %\mathcode‘\|="026A %\mathcode‘\’="8000 %\mathcode‘\*="2203 %\mathcode‘\-="2200 %\mathcode‘\:="303A %\mathcode‘\=="303D %\mathcode‘\[="405B %\mathcode‘\_="8000 %\mathcode‘\}="5267
+%
+%\def\sc#1{{\tensc#1}}
+\let\DS\displaystyle \let\TS\textstyle \let\SS\scriptstyle
+\let\SSS\scriptscriptstyle
+\let\hw\hidewidth
+\def\eop{\hfill$\char"220E$}
+\def\pover{\overwithdelims()}
+\def\fover{\overwithdelims\lfloor\rfloor}
+\long\def\proclaim #1. #2\par{%
+  %\ifdim\lastskip=\smallskipamount\else\smallbreak\fi
+  %\smallbreak%
+  \begingroup%
+  %\narrower%
+  \noindent%
+  \em{#1}.\enspace#2\par\endgroup%
+  %\smallbreak\noindent%
+  %\ifdim\lastskip<\smallskipamount
+  %  \removelastskip\penalty55\smallskip\fi\noindent}
+}
+\newcount\licount
+\long\def\ol#1\eol{\begingroup% keep stuff local for ol inside ol (inside ol...)
+  \long\def\li{\advance\licount by1\item{\liform{\the\licount}}}%
+  \ifdefined\liform\else\def\liform##1{##1.}\fi%
+  \licount=0%
+  \penalty10000 #1\smallskip\endgroup}
+\def\super#1{%
+  \char\ifcase#1"2070\or"00B9\or"00B2\or"00B3\or"2074\or"2075\or"2076
+  \or"2077\or"2078\or"2079\fi}%
+\def\sub#1{%
+  \char\ifcase#1"2080\or"2081\or"2082\or"2083\or"2084\or"2085\or"2086
+  \or"2087\or"2088\or"2089\fi}%
+%\def\vfrac#1/#2{%\hbox{$\sup#1\fracslash\sub#2$}}
+%  %\hbox{$\SS#1{\TS\fracslash}#2$}}
+%  \raise.5ex\hbox{$\SS\m@th#1$}\hbox{%
+%    $\m@th\mkern1mu\TS\fracslash\mkern1mu\SS#2$}}
+\def\vfrac#1#2{%
+  \def\num@r{#1}%
+  \def\den@m{#2}%
+  \mathpalette\vfr@k\relax}
+\def\vfr@k#1#2{\raise.5ex\hbox{$\m@th #1\scriptscriptstyle\num@r$}%
+  /\lower.5ex\hbox{$\m@th #1\scriptscriptstyle\den@m$}}%
+\def\openupnormal{\afterassignment\@penupnormal\dimen@=}
+\def\@penupnormal{\advance\normallineskip\dimen@
+  \advance\normalbaselineskip\dimen@
+  \advance\normallineskiplimit\dimen@}
+\long\def\ul#1\eol{\begingroup%
+  \ifdefined\liform\else\def\liform{•}\fi%
+  \long\def\li##1{\item{\liform{}}##1}%
+  #1\endgraf\endgroup\smallskip}
+\def\edefappend#1#2{%
+  \toks@ = \expandafter{#1}%
+  \edef#1{\the\toks@ #2}%
+}%
+\def\centered{%
+  \leftskip=0pt plus 1fil \rightskip=0pt plus 1fil
+  \parskip=0pt \parfillskip=0pt plus0pt minus0pt\noindent}
+\def\dmatrix#1{\null\,\vcenter{%\normalbaselines\m@th
+  \ialign{\hfil$\displaystyle##$\hfil&&\quad\hfil$\displaystyle##$\hfil\crcr
+    \strut\crcr\noalign{\kern-\baselineskip}
+    ￼#1\crcr\strut\crcr\noalign{\kern-\baselineskip}}}\,}
+\def\caseswithdelim#1#2{\left#1\,\vcenter{\normalbaselines\m@th
+  \ialign{$\mathstrut##\hfil$&\quad##\hfil\crcr#2\crcr}}\right.}
+\def\bordermatrixwithdelims#1#2#3{\begingroup \m@th
+  \setbox0=\vbox{\def\cr{\crcr\noalign{\kern2pt\global\let\cr=\endline}}
+    \ialign{$##$\hfil\kern2pt\kern\p@renwd&\thinspace\hfil$##$\hfil
+      &&\quad\hfil$##$\hfil\crcr
+      \omit\strut\hfil\crcr\noalign{\kern-\baselineskip}
+      #3\crcr\omit\strut\cr}}
+  \setbox2=\vbox{\unvcopy0 \global\setbox1=\lastbox}
+  \setbox2=\hbox{\unhbox1 \unskip \global\setbox1=\lastbox}
+  \setbox2=\hbox{$\kern\wd1\kern-\p@renwd \left#1 \kern-\wd1
+    \global\setbox1=\vbox{\box1\kern2pt}
+    \vcenter{\kern-\ht1 \unvbox0 \kern-\baselineskip} \,\right#2$}
+  \null\;\vbox{\kern\ht1\box2}\endgroup}
+\def\cases#1{\left\{\,\vcenter{\m@th\ialign{%
+  $##\hfil$&\quad##\hfil\crcr#1\crcr}}\right.}
+%
+\def\bcases#1{\caseswithdelim[{#1}}
+\def\vcases#1{\caseswithdelim|{#1}}
+\def\cbordermatrix#1{\bordermatrixwithdelims[]{#1}}
+\def\bbordermatrix#1{\bordermatrixwithdelims\{\}{#1}}
+\def\vbordermatrix#1{\bordermatrixwithdelims||{#1}}
+\def\vmatrix#1{\left|\matrix{#1}\right|}
+\def\bmatrix#1{\left[\matrix{#1}\right]}
+\def\dpmatrix#1{\left(\dmatrix{#1}\right)}
+\def\bra#1{\langle#1|}
+\def\ket#1{|#1\rangle}
+\def\braket#1#2{\langle#1|#2\rangle}
+\def\displ@y{\global\dt@ptrue\m@th
+  %\def\cr{\crcr\noalign{\vskip\baselineskip}}
+  \everycr{\noalign{\ifdt@p\global\dt@pfalse%
+    \else\penalty\interdisplaylinepenalty\fi}}}
+\def\eqalign#1{\null\,\vcenter{\m@th%\displ@y
+  \ialign{\strut$\hfil\displaystyle{##}$&$\displaystyle{{}##}\hfil$%
+      \crcr#1\crcr}}\,}
+\def\eqalignno#1{\displ@y \tabskip=\centering
+  \halign to\displaywidth{\strut\hfil$\@lign\displaystyle{##}$\tabskip=0pt
+    &$\@lign\displaystyle{{}##}$\hfil\tabskip=\centering
+    &##\tabskip=0pt\crcr% removed \llap which was breaking \cr
+    #1\crcr}}
+\jot=0pt
+\abovedisplayskip=\baselineskip \abovedisplayshortskip=0pt
+\belowdisplayskip=\baselineskip \belowdisplayshortskip=\baselineskip
+% TODO: footnotes don't always snap to grid
+\newinsert\margins
+\dimen\margins=\dimexpr\vsize-3\baselineskip
+\skip\margins=0pt plus0pt minus0pt
+\newtoks\verso
+\newtoks\recto
+\newdimen\frontmargin
+\newdimen\spinemargin
+\newdimen\pagewd
+\newdimen\pageht
+\pagewd=210mm
+\pageht=297mm
+\newbox\gridbox
+\newif\ifspread
+\newif\ifgrid
+\newif\ifmatchxht
+\chardef\dag"2020
+\chardef\ddag"2021
+\def\flushleft{\leftskip0pt plus1fil \rightskip0pt \parfillskip0pt\relax}
+\def\flushright{\leftskip0pt \rightskip0pt plus1fil \parfillskip0pt plus1fil\relax}
+\def\setType roman:"#1" mono:"#2" math:"#3" #4/#5*#6:#7 {
+  \gdef\textSize{#4}%
+  \setMathType "#3" #4
+  \ifdefined\XeTeXprotrudechars%
+    \XeTeXprotrudechars=2%
+    \XeTeXdashbreakstate=1%
+  \else%
+    \input luaotfload.sty
+  \fi%
+  \def\setProtrusion##1{%
+    %\lpcode##1 U`“ 800 \lpcode##1 U`” 900 \lpcode##1 U`" 800
+    %
+    \rpcode##1 U`” 150 \rpcode##1 U`’ 150 \rpcode##1 U`! 100%
+    \rpcode##1 U`, 200 \rpcode##1 U`- 200 \rpcode##1 U`. 200%
+    \rpcode##1 U`† 200 \rpcode##1 U`‡ 200%
+    \rpcode##1 U`: 100 \rpcode##1 U`; 100 \rpcode##1 U`? 100}%
+  \gdef\m/##1{\ifcase##1 0em \or1em \or.5em \or.3334em \or.25em \or.2em
+    \or.1667em \or.1429em \or.125em \or.1111em \fi}
+  \gdef\thinspace{\kern\m/6}
+  % TODO: don't assume \font
+  \def\interwordspace{\fontdimen2\font}%
+  \def\interwordstretch{\fontdimen3\font}%
+  \def\interwordshrink{\fontdimen4\font}%
+  \def\extraspace{\fontdimen7\font}%
+  \gdef\setSpace ##1+##2-##3++##4{%
+    \interwordspace=##1\interwordstretch=\dimexpr##2-\interwordspace%
+    \interwordshrink=\dimexpr\interwordspace-##3\extraspace=##4}%
+  \def\setFont##1##2{%
+    \expandafter\font\csname##1-roman\endcsname=
+      "#1:mapping=tex-text;+onum" at ##2 true bp%
+    \expandafter\font\csname##1-italic\endcsname=
+      "#1/I:mapping=tex-text;+onum" at ##2 true bp%
+    \expandafter\font\csname##1-slanted\endcsname=
+      "#1:slant=0.2;mapping=tex-text;+onum" at ##2 true bp%
+    \expandafter\font\csname##1-bold\endcsname=
+      "#1/B:mapping=tex-text;+onum" at ##2 true bp%
+    \expandafter\font\csname##1-bolditalic\endcsname=
+      "#1/BI:mapping=tex-text;+onum" at ##2 true bp%
+    \expandafter\font\csname##1-caps\endcsname=
+      "#1:letterspace=#4;mapping=tex-text" at ##2 true bp%
+    \expandafter\font\csname##1-smallcaps\endcsname=
+      "#1:+smcp;+onum;mapping=tex-text" at ##2 true bp%
+    \expandafter\font\csname##1-smallcaps-bold\endcsname=
+      "#1/B:+smcp;+onum;mapping=tex-text" at ##2 true bp%
+    \expandafter\font\csname##1-monospace\endcsname=
+      "#2" at ##2 true bp%
+    \expandafter\font\csname##1-monospace-italic\endcsname=
+      "#2/I" at ##2 true bp%
+    \expandafter\font\csname##1-monospace-bold\endcsname=
+      "#2/B" at ##2 true bp%
+    \expandafter\font\csname##1-monospace-bolditalic\endcsname=
+      "#2/BI" at ##2 true bp%
+    \gdef\raggedright{\rightskip=0pt plus2em
+      \spaceskip=\m/4 \xspaceskip=\m/5\relax}%
+    \ifdefined\XeTeXprotrudechars%
+      \expandafter\setProtrusion\csname##1-roman\endcsname%
+      \expandafter\setProtrusion\csname##1-italic\endcsname%
+      \expandafter\setProtrusion\csname##1-slanted\endcsname%
+      \expandafter\setProtrusion\csname##1-bold\endcsname%
+      \expandafter\setProtrusion\csname##1-caps\endcsname%
+      \expandafter\setProtrusion\csname##1-smallcaps\endcsname%
+    \fi%
+    {\csname##1-roman\endcsname\setSpace \m/4+\m/2-\m/5++\m/3}%
+    {\csname##1-italic\endcsname\setSpace \m/4+\m/2-\m/5++\m/3}%
+    {\csname##1-slanted\endcsname\setSpace \m/4+\m/2-\m/5++\m/3}%
+    {\csname##1-bold\endcsname\setSpace \m/4+\m/2-\m/5++\m/3}%
+    {\csname##1-caps\endcsname\setSpace \m/2+\m/2-\m/8++\m/3}%
+    {\csname##1-smallcaps\endcsname\setSpace \m/4+\m/2-\m/5++\m/3}%
+    %{\csname##1-monospace\endcsname\setSpace \m/1+0pt-0pt++0pt}%
+    \expandafter\gdef\csname##1\endcsname{%
+      \ifdefined\loadedMathFont\setMathType "\loadedMathFont"
+        \number\numexpr##2-(\numexpr\textSize-\mathSize) \fi%
+      \def\rm{\fam0 \csname##1-roman\endcsname}%
+      \def\it{\fam1 \csname##1-italic\endcsname}%
+      \def\sl{\fam5 \csname##1-slanted\endcsname}%
+      \def\bf{\fam6 \csname##1-bold\endcsname}%
+      \def\bfit{\fam3 \csname##1-bolditalic\endcsname}
+      \def\sc{\csname##1-smallcaps\endcsname}%
+      \def\tt{\fam7 \csname##1-monospace\endcsname\let\it\ttit\let\bf\ttbf}%
+      \def\ttbf{\csname##1-monospace-bold\endcsname\let\it\bfttit}%
+      \def\ttit{\csname##1-monospace-italic\endcsname}%
+      \def\ttbfit{\csname##1-monospace-bolditalic\endcsname}%
+      \def\caps{\csname##1-caps\endcsname}%
+      \rm%
+      %\setbox0\hbox{Ag}%
+      %\setbox\strutbox\hbox{\vrule height\ht0 depth\dp0 width0pt}%
+      \setbox\strutbox\hbox{\vrule height.7\baselineskip depth.3\baselineskip width0pt}%
+      }}%
+  \setFont{bodyfont}{#4}%
+  \setFont{nonpareil}{6}%
+  \setFont{minion}{7}%
+  \setFont{brevier}{8}%
+  \setFont{bourgeois}{9}%
+  \setFont{garamond}{10}%
+  \setFont{philosophy}{11}%
+  \setFont{pica}{12}%
+  \setFont{augustin}{14}%
+  \setFont{greatprimer}{18}%
+  \let\smalltext\brevier\let\longprimer\garamond\let\smallpica\philosophy%
+  \bodyfont{}%
+  %\emergencystretch=\m/5
+  \widowpenalty=10000%
+  \clubpenalty=0%\brokenpenalty=0 \finalhyphendemerits=0
+  %\lastlinefit=200 % NOTE: nullifies \abovedisplayshortskip
+  \baselineskip=#5 true bp \normalbaselineskip=\baselineskip%
+  \lineskip=0pt \normallineskip=\baselineskip%
+  \lineskiplimit=-\baselineskip \normallineskiplimit=-\baselineskip
+  \abovedisplayskip=\baselineskip \abovedisplayshortskip=0pt%
+  \belowdisplayskip=\baselineskip \belowdisplayshortskip=\baselineskip%
+  \parindent=\dimexpr#6em/#5%
+  \parskip=0pt%
+  \topskip=\baselineskip%
+  \smallskipamount=\baselineskip%
+  \medskipamount=2\baselineskip%
+  \bigskipamount=3\baselineskip%
+  \insertskipamount=2\baselineskip%
+  \special{papersize=\the\pagewd,\the\pageht}%
+  \hsize=#6pc%
+  \vsize=#7\hsize%
+  \voffset=\dimexpr(\pageht-\vsize)/3-1in %+ \topskip
+  \frontmargin=\dimexpr((\pagewd-\hsize)/3)*2-1in%
+  \frontmarginsep=1em
+  \spinemargin=\dimexpr(\pagewd-\hsize)/3-1in%
+  \advance\hoffset by\dimexpr(\pagewd-\hsize)/2-1in%
+  \ifdefined\gridcolor\else\def\gridcolor{1 .5 .5}\fi
+  \ifgrid%
+    \setbox\gridbox\line{%
+      \special{color push rgb \gridcolor}%
+      \vrule height\baselineskip width0pt
+      \hrulefill
+      \special{color pop}}
+    \def\grid{\vbox to0pt{\vbox to\vsize{\leaders\copy\gridbox\vfil}}%
+      \nointerlineskip}
+  \fi%
+  \def\pagebody{\ifgrid\grid\fi\vbox to\vsize{%
+    \boxmaxdepth=\maxdepth\pagecontents\vss}}%
+  \nopagenumbers%
+  \frenchspacing%
+  \def\makeheadline{\vbox to0pt{\vbox to-\dimexpr\baselineskip+\dp\strutbox{}\noindent\the\headline\vss}%
+    %}
+    \nointerlineskip}%
+  \def\makefootline{\line{\the\footline}}%
+  \skip\footins=\baselineskip%
+  \verso={\hoffset=\frontmargin}%
+  \recto={\hoffset=\spinemargin}%
+  \def\makefrontmargin{%
+    \ifspread%
+      \ifodd\pageno\llap{\vbox to0pt{\box\margins\vss}\kern\frontmarginsep}% TODO: flushright/left ei (tietenkään) toimi, miten?
+      \else\rlap{\kern\hsize\kern\frontmarginsep\vbox to0pt{\box\margins\vss}}\fi%
+    \else\rlap{\kern\hsize\qquad\vbox to0pt{\box\margins\vss}}\fi}%
+  \def\plainoutput{%
+    \shipout\vbox{\makeheadline
+      \makefrontmargin
+      \pagebody
+      \makefootline}
+    \advancepageno
+    \ifnum\outputpenalty>-20000 \else\dosupereject\fi}%
+  \def\spreadoutput{\ifodd\pageno\the\verso\else\the\recto\fi\plainoutput}%
+  \ifspread\output={\spreadoutput}\else\output={\plainoutput}\fi%
+  }%
+\def\abbr#1{{\sc\lowercase{#1}}}
+\long\def\blockquote#1\eol{%
+  \ifdim\lastskip=1sp\nobreak\else\smallskip\fi%
+  \begingroup%
+    \raggedright\narrower\noindent #1\par
+  \endgroup\smallskip\noindent}
+\def\quotee#1{\smallskip--- #1}
+\def\bquote#{\bgroup\aftergroup\endgraf\raggedright\narrower\let\next= }
+\newcount\sectonecount
+\newcount\secttwocount
+\newcount\sectthreecount
+%\chapter\section\subsection\subsubsection
+\def\emitsectglue#1{%
+  \ifdim\lastskip=\baselineskip\removelastskip\fi
+  \ifdim\lastskip=1sp\nobreak%
+  \else%
+    \vskip0pt plus#1\baselineskip
+    \penalty-\numexpr#1*100+50\relax
+    \vskip0pt plus-#1\baselineskip
+    \vskip#1\baselineskip
+  \fi}
+\newtoks\postsectoks
+\postsectoks={\nobreak\smallskip\noindent\kern-1sp\hskip1sp\relax}% the relax stops scanning, don't remove!
+%
+\newcount\sectioncount
+\newcount\chaptercount
+\newcount\subsectioncount
+\newcount\subsubsectioncount
+%
+\newtoks\sectoks\sectoks={\noindent}
+\newtoks\titlestyle\titlestyle={\eject\augustin\bf\the\sectoks}
+\newtoks\subjectstyle\subjectstyle={\emitsectglue 2\pica\bfit\the\sectoks}
+\newtoks\subsubjectstyle\subsubjectstyle={\emitsectglue 1\it\the\sectoks}
+\newtoks\subsubsubjectstyle\subsubsubjectstyle={\emitsectglue 1\the\sectoks}
+%
+\long\def\title#1\par{%
+  {\marks0{}\marks1{}\the\titlestyle#1}\marks0{#1}\the\postsectoks}
+\long\def\subject#1\par{%
+  {\marks1{}\the\subjectstyle#1}\marks1{#1}\the\postsectoks}
+\long\def\subsubject#1\par{%
+  {\the\subsubjectstyle#1}\the\postsectoks}
+\long\def\subsubsubject#1\par{%
+  {\the\subsubsubjectstyle#1}\the\postsectoks}
+%
+\def\thechapter{\the\count1.\quad}
+\newtoks\titlestyle\titlestyle={\eject\augustin\bf\the\sectoks}
+\long\def\chapter#1{%
+  \global\advance\count1 by1
+  \global\count2=0
+  \global\count3=0
+  \global\count4=0
+  \title\thechapter #1}
+%
+\def\thesection{\ifnum\count1>0 \the\count1.\fi\the\count2.\quad}
+\long\def\section#1{%
+  \global\advance\count2 by1
+  \global\count3=0
+  \global\count4=0
+  \subject\thesection #1}
+%
+\def\thesubsection{\ifnum\count1>0 \the\count1.\fi\the\count2.\the\count3\quad}
+\long\def\subsection#1{%
+  \global\advance\count3 by1
+  \global\count4=0
+  \subsubject\thesubsection #1}
+%
+\def\thesubsubsection{%
+  \ifnum\count1>0 \the\count1.\fi\the\count2.\the\count3.%
+  \the\count4.\quad}
+\long\def\subsubsection#1{%
+  \global\advance\count4 by1
+  \subsubsubject\thesubsubsection #1}
+%
+\long\def\sect#1#2\par{%
+  \ifdefined\sectform\else\def\sectform##1{##1}\fi%
+  \ifdim\lastskip=1sp\else\emitsectglue{\numexpr4-#1}\fi\noindent%
+  {\ifcase#1\relax\or\global\secttwocount=0\global\sectthreecount=0%
+      \global\advance\sectonecount by1\ifspread\eject\fi%
+      \sectform{\noindent\the\sectonecount.}%
+    \or\global\sectthreecount=0\global\advance\secttwocount by1%
+      \sectform{\noindent\the\sectonecount.\the\secttwocount.}%
+    \or\global\advance\sectthreecount by1%
+      \sectform{\noindent\the\sectonecount.\the\secttwocount.\the\sectthreecount.}%
+    \else\garamond\it\fi%
+    #2\nobreak\vskip\baselineskip\noindent\hskip-1sp\hskip1sp\relax}}
+%\def\@ins{\par\begingroup\setbox0=\vbox\bgroup} % start a \vbox
+%\def\endinsert{\egroup%
+%  \if@mid\dimen@=\ht0\advance\dimen@ by\dp\z@
+%    %\advance\dimen@ by\baselineskip% orig: 12\p@
+%    \advance\dimen@ by\pagetotal\advance\dimen@ by-\pageshrink
+%    \ifdim\dimen@>\pagegoal\@midfalse\p@gefalse\fi\fi
+%  \if@mid\smallskip\box0\smallskip% orig: bigskip/-break
+%  \else\insert\topins{\penalty100% floating insertion
+%    \splittopskip=0pt\splitmaxdepth=\maxdimen\floatingpenalty=0
+%    \ifp@ge\dimen@=\dp0\vbox to\vsize{\unvbox0 \kern-\dimen@}% depth is zero
+%    \else\box0\medskip\fi}\fi\endgroup}% orig: bigskip
+%\def\pagecontents{%
+%  \ifvoid\topins \else\unvbox\topins\fi
+%  \dimen0=\dp255 \unvbox255
+%  \ifvoid\footins\else % footnote info is present
+%    \vskip\skip\footins
+%    %\footnoterule
+%    \unvbox\footins\fi
+%  \ifr@ggedbottom \kern-\dimen0 \vfil \fi}
+\def\vfootnote#1{\insert\footins\bgroup
+  %\baselineskip=.75\baselineskip
+  \interlinepenalty=\interfootnotelinepenalty
+  \splittopskip=\dimexpr\baselineskip+\ht\strutbox\relax %\ht\strutbox % top baseline for broken footnotes
+  \splitmaxdepth=\dp\strutbox \floatingpenalty=20000
+  %\leftskip=0pt \rightskip=0pt \spaceskip=0pt \xspaceskip=0pt
+  \textindent{#1}\footstrut\futurelet\next\fo@t}
+\def\footnoterule{\hrule width.3\hsize}
+\def\footstrut{\vbox to\splittopskip{}}% orig splittopskip
+\let\ts\thinspace
+\def\em#1{{\it#1}}
+\def\str#1{{\bf#1}}
+{\obeyspaces\global\let =\ }
+\def\obey{%
+  \def\helper##1\yebo{%
+    \smallskip##1\smallskip%\vskip\dp\strutbox}%
+    \endgroup\noindent}%
+  \begingroup\tt\obeylines\obeyspaces\helper}
+%\def\displ@y{\lineskip=\baselineskip\lineskiplimit=0pt }
+\def\displ@y{\global\dt@ptrue\m@th
+  \def\cr{\crcr\noalign{\smallskip}}
+    %\global\lineskip=\baselineskip\global\lineskiplimit=0pt }}}
+  \everycr{\noalign{\ifdt@p\global\dt@pfalse%
+    \else\penalty\interdisplaylinepenalty\fi}}}
+\catcode`@=12

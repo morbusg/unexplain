@@ -1,0 +1,1549 @@
+\ifdefined\Umathchardef
+  \let\mchardef\Umathchardef
+  \let\delim\Udelimiter
+  \let\maccent\Umathaccent
+  \let\mcode\Umathcode
+  \let\delimcode\Udelcode
+  \let\mradical\Uradical
+\else
+  \let\mchardef\XeTeXmathchardef
+  \let\delim\XeTeXdelimiter
+  \let\maccent\XeTeXmathaccent
+  \let\mcode\XeTeXmathcode
+  \let\delimcode\XeTeXdelcode
+  \let\mradical\XeTeXradical
+\fi
+
+\mchardef\exclam"6"0"00021
+\def\lparen{\delim"4"0"00028 }
+\def\rparen{\delim"5"0"00029 }
+\mchardef\plus"2"0"0002B
+\mchardef\ldotp"6"0"0002E
+\mchardef\colon"6"0"0003A
+\mchardef\semicolon"6"0"0003B
+\mchardef\less"3"0"0003C
+\mchardef\equal"3"0"0003D
+\mchardef\greater"3"0"0003E
+\def\lbrack{\delim"4"0"0005B }
+\mchardef\backslash"0"0"0005C
+\def\rbrack{\delim"5"0"0005D }
+\def\lbrace{\delim"4"0"0007B }
+\def\vert{\delim"0"0"0007C }
+\def\rbrace{\delim"5"0"0007D }
+\mchardef\sterling"0"0"000A3
+\mchardef\yen"0"0"000A5
+\mchardef\S"0"0"000A7
+\def\guillemotleft{\delim"4"0"000AB }
+\mchardef\neg"0"0"000AC
+\mchardef\degree"0"0"000B0
+\mchardef\pm"2"0"000B1
+\mchardef\P"0"0"000B6
+\mchardef\cdotp"2"0"000B7
+\def\guillemotright{\delim"5"0"C }
+\mchardef\AA"7"0"000C5
+\mchardef\AE"7"0"000C6
+\mchardef\DH"7"0"000D0
+\mchardef\times"2"0"000D7
+\mchardef\O"7"0"000D8
+\mchardef\TH"7"0"000DE
+\mchardef\ss"7"0"000DF
+\mchardef\aa"7"0"000E5
+\mchardef\ae"7"0"000E6
+\mchardef\dh"7"0"000F0
+\mchardef\div"2"0"000F7
+\mchardef\o"7"0"000F8
+\mchardef\th"7"0"000FE
+\mchardef\DJ"7"0"00110
+\mchardef\dj"7"0"00111
+\mchardef\i"7"0"00131
+\mchardef\imath"7"0"00131
+\mchardef\L"7"0"00141
+\mchardef\l"7"0"00142
+\mchardef\NG"7"0"0014A
+\mchardef\ng"7"0"0014B
+\mchardef\OE"7"0"00152
+\mchardef\oe"7"0"00153
+\mchardef\lambdaslash"7"0"0019B
+\mchardef\Ohorn"7"0"001A0
+\mchardef\ohorn"7"0"001A1
+\mchardef\Uhorn"7"0"001AF
+\mchardef\uhorn"7"0"001B0
+\mchardef\Zbar"0"0"001B5
+\mchardef\cprime"2"0"002B9
+\def\^{\maccent"7"0"002C6 }
+\def\v{\maccent"7"0"002C7 }
+\def\ipacrossaccent{\maccent"7"0"002DF }
+\def\ipasupgamma{\maccent"7"0"002E0 }
+\mchardef\ipasupl"2"0"002E1
+\mchardef\ipasups"2"0"002E2
+\mchardef\ipasupx"2"0"002E3
+\def\ipasuprerglotstpp{\maccent"7"0"002E4 }
+\def\tonebarextrahigh{\maccent"7"0"002E5 }
+\def\tonebarhigh{\maccent"7"0"002E6 }
+\def\tonebarmid{\maccent"7"0"002E7 }
+\def\tonebarlow{\maccent"7"0"002E8 }
+\def\tonebarextralow{\maccent"7"0"002E9 }
+\def\ipavoicing{\maccent"7"0"002EC }
+\def\ipaunaspirated{\maccent"7"0"002ED }
+\def\grave{\maccent"7"0"00300 }
+\def\acute{\maccent"7"0"00301 }
+\def\hat{\maccent"7"0"00302 }
+\def\widehat{\maccent"7"0"00302 }
+\def\tilde{\maccent"7"0"00303 }
+\def\widetilde{\maccent"7"0"00303 }
+\def\bar{\maccent"7"0"00304 }
+\def\overbar{\maccent"7"0"00305 }
+\def\breve{\maccent"7"0"00306 }
+\def\dot{\maccent"7"0"00307 }
+\def\ddot{\maccent"7"0"00308 }
+\def\ovhook{\maccent"7"0"00309 }
+\def\ocirc{\maccent"7"0"0030A }
+\def\H{\maccent"7"0"0030B }
+\def\check{\maccent"7"0"0030C }
+\def\widecheck{\maccent"7"0"0030C }
+\def\candra{\maccent"7"0"00310 }
+\def\oturnedcomma{\maccent"7"0"00312 }
+\def\osmooth{\maccent"7"0"00313 }
+\def\orough{\maccent"7"0"00314 }
+\def\ocommatopright{\maccent"7"0"00315 }
+\def\droang{\maccent"7"0"0031A }
+\def\d{\maccent"7"0"00323 }
+\def\c{\maccent"7"0"00327 }
+\def\k{\maccent"7"0"00328 }
+\def\undertilde{\maccent"7"0"00330 }
+\def\wideutilde{\maccent"7"0"00330 }
+\let\wideundertilde\wideutilde
+\def\b{\maccent"7"0"00331 }
+\def\underbar{\maccent"7"0"00331 }
+\let\b\underbar
+\def\not{\maccent"7"0"00338 }
+\def\t{\maccent"7"0"00361 }
+\mchardef\upAlpha"7"0"00391
+\mchardef\upBeta"7"0"00392
+\mchardef\upGamma"7"0"00393
+\let\Gamma\upGamma
+\mchardef\upDelta"7"0"00394
+\let\Delta\upDelta
+\mchardef\upEpsilon"7"0"00395
+\mchardef\upZeta"7"0"00396
+\mchardef\upEta"7"0"00397
+\mchardef\upTheta"7"0"00398
+\let\Theta\upTheta
+\mchardef\upIota"7"0"00399
+\mchardef\upKappa"7"0"0039A
+\mchardef\upLambda"7"0"0039B
+\let\Lambda\upLambda
+\mchardef\upMu"7"0"0039C
+\mchardef\upNu"7"0"0039D
+\mchardef\upXi"7"0"0039E
+\let\Xi\upXi
+\mchardef\upOmicron"7"0"0039F
+\mchardef\upPi"7"0"003A0
+\let\Pi\upPi
+\mchardef\upRho"7"0"003A1
+\mchardef\upSigma"7"0"003A3
+\let\Sigma\upSigma
+\mchardef\upTau"7"0"003A4
+\mchardef\upUpsilon"7"0"003A5
+\mchardef\upPhi"7"0"003A6
+\let\Phi\upPhi
+\mchardef\upChi"7"0"003A7
+\mchardef\upPsi"7"0"003A8
+\let\Psi\upPsi
+\mchardef\upOmega"7"0"003A9
+\let\Omega\upOmega
+\mchardef\upalpha"7"0"003B1
+\let\alpha\upalpha
+\mchardef\upbeta"7"0"003B2
+\let\beta\upbeta
+\mchardef\upgamma"7"0"003B3
+\let\gamma\upgamma
+\mchardef\updelta"7"0"003B4
+\let\delta\updelta
+\mchardef\upvarepsilon"7"0"003B5
+\let\varepsilon\upvarepsilon
+\mchardef\upzeta"7"0"003B6
+\let\zeta\upzeta
+\mchardef\upeta"7"0"003B7
+\let\eta\upeta
+\mchardef\uptheta"7"0"003B8
+\let\theta\uptheta
+\mchardef\upiota"7"0"003B9
+\let\iota\upiota
+\mchardef\upkappa"7"0"003BA
+\let\kappa\upkappa
+\mchardef\uplambda"7"0"266E
+\let\lambda\uplambda
+\mchardef\upmu"7"0"003BC
+\let\mu\upmu
+\mchardef\upnu"7"0"003BD
+\let\nu\upnu
+\mchardef\upxi"7"0"003BE
+\let\xi\upxi
+\mchardef\upomicron"7"0"003BF
+\mchardef\uppi"7"0"003C0
+\let\pi\uppi
+\mchardef\uprho"7"0"003C1
+\let\rho\uprho
+\mchardef\upvarsigma"7"0"003C2
+\let\varsigma\upvarsigma
+\mchardef\upsigma"7"0"003C3
+\let\sigma\upsigma
+\mchardef\uptau"7"0"003C4
+\let\tau\uptau
+\mchardef\upupsilon"7"0"003C5
+\let\upsilon\upupsilon
+\mchardef\upvarphi"7"0"003C6
+\let\varphi\upvarphi
+\mchardef\upchi"7"0"003C7
+\let\chi\upchi
+\mchardef\uppsi"7"0"003C8
+\let\psi\uppsi
+\mchardef\upomega"7"0"003C9
+\let\omega\upomega
+\mchardef\upvarbeta"7"0"003D0
+\mchardef\upvartheta"7"0"003D1
+\let\vartheta\upvartheta
+\mchardef\upUpsilon"7"0"003D2
+\let\Upsilon\upUpsilon
+\mchardef\upphi"7"0"003D5
+\let\phi\upphi
+\mchardef\upvarpi"7"0"003D6
+\let\varpi\upvarpi
+\mchardef\upoldKoppa"0"0"003D8
+\mchardef\upoldkoppa"0"0"003D9
+\mchardef\upStigma"7"0"003DA
+\mchardef\upstigma"7"0"003DB
+\mchardef\upDigamma"7"0"003DC
+\mchardef\updigamma"7"0"003DD
+\mchardef\upKoppa"7"0"003DE
+\mchardef\upkoppa"7"0"003DF
+\mchardef\upSampi"7"0"003E0
+\mchardef\upsampi"7"0"003E1
+\mchardef\upvarkappa"7"0"003F0
+\mchardef\upvarrho"7"0"003F1
+\let\varrho\upvarrho
+\mchardef\upvarTheta"7"0"003F4
+\mchardef\upepsilon"7"0"003F5
+\let\epsilon\upepsilon
+\mchardef\upepsilon"7"0"003F5
+\mchardef\upbackepsilon"0"0"003F6
+\mchardef\figdash"6"0"02012
+\mchardef\endash"6"0"02013
+\mchardef\emdash"6"0"02014
+\def\Vert{\delim"0"0"02016 }
+\def\lq{\delim"4"0"02018 }
+\def\rq{\delim"5"0"02019 }
+\def\quotsinglbase{\delim"4"0"0201A }
+\def\quotsinglright{\delim"5"0"0201B }
+\def\quotdblbase{\delim"4"0"0201E }
+\def\quotdblright{\delim"5"0"0201F }
+\mchardef\dagger"2"0"02020
+\mchardef\dagger"0"0"02020
+\mchardef\ddagger"2"0"02021
+\mchardef\ddagger"0"0"02021
+\mchardef\smblkcircle"2"0"02022
+\mchardef\emleader"6"0"02026
+\mchardef\prime"0"0"02032
+\let\arcmin\prime
+\mchardef\prime"0"0"02032
+\mchardef\arcsec"0"0"02033
+\mchardef\dprime"0"0"02033
+\def\trprime{\delim"4"0"02034 }
+\mchardef\backprime"0"0"02035
+\mchardef\backdprime"0"0"02036
+\mchardef\backtrprime"0"0"02037
+\def\guilsinglleft{\delim"4"0"02039 }
+\def\guilsinglright{\delim"5"0"0203A }
+\mchardef\tieconcat"2"0"02040
+\mchardef\fracslash"0"0"02044
+\mchardef\closure"3"0"02050
+\mchardef\qprime"0"0"02057
+\mchardef\medmathspace"0"0"0205F
+\def\leftharpoonaccent{\maccent"7"0"020D0 }
+\def\wideleftharpoonaccent{\maccent"7"0"020D0 }
+\def\rightharpoonaccent{\maccent"7"0"020D1 }
+\let\harp\rightharpoonaccent
+\def\widerightharpoonaccent{\maccent"7"0"020D1 }
+\def\vertoverlay{\maccent"7"0"020D2 }
+\def\overleftarrow{\maccent"7"0"020D6 }
+\def\wideoverleftarrow{\maccent"7"0"020D6 }
+\def\vec{\maccent"7"0"020D7 }
+\def\wideoverrightarrow{\maccent"7"0"020D7 }
+\def\dddot{\maccent"7"0"020DB }
+\def\ddddot{\maccent"7"0"020DC }
+\def\overleftrightarrow{\maccent"7"0"020E1 }
+\let\lrvec\overleftrightarrow
+\def\annuity{\maccent"7"0"020E7 }
+\def\threeunderdot{\maccent"7"0"020E8 }
+\def\widebridgeabove{\maccent"7"0"020E9 }
+\def\overrightharpoondown{\maccent"7"0"020EC }
+\def\overleftharpoondown{\maccent"7"0"020ED }
+\def\underleftarrow{\maccent"7"0"020EE }
+\def\underrightarrow{\maccent"7"0"020EF }
+\mchardef\complex"7"0"02102
+\mchardef\incare"0"0"02105
+\mchardef\hilbert"7"0"0210D
+\mchardef\hslash"7"0"0210F
+\let\hbar\hslash
+\mchardef\hbar"7"0"0210F
+\mchardef\Im"7"0"02111
+\mchardef\ell"7"0"02113
+\mchardef\posinteger"7"0"02115
+\mchardef\wp"7"0"02118
+\mchardef\REALP"7"0"02119
+\mchardef\Re"7"0"0211C
+\mchardef\REALR"7"0"0211D
+\mchardef\ZED"7"0"02124
+\mchardef\mho"0"0"02127
+\mchardef\turnediota"7"0"02129
+\mchardef\Angstrom"7"0"0212B
+\mchardef\Finv"0"0"02132
+\mchardef\aleph"7"0"02135
+\mchardef\beth"7"0"02136
+\mchardef\gimel"7"0"02137
+\mchardef\daleth"7"0"02138
+\mchardef\Game"0"0"02141
+\mchardef\sansLmirrored"0"0"02142
+\mchardef\sansLinverted"0"0"02143
+\mchardef\Yup"0"0"02144
+\mchardef\upand"2"0"0214B
+\mchardef\fraconeeighth"0"0"0215B
+\mchardef\fracthreeeighths"0"0"0215C
+\mchardef\fracfiveeighths"0"0"0215D
+\mchardef\fracseveneights"0"0"0215E
+\mchardef\leftarrow"3"0"02190
+\mchardef\uparrow"3"0"02191
+\mchardef\rightarrow"3"0"02192
+\mchardef\downarrow"3"0"02193
+\mchardef\leftrightarrow"3"0"02194
+\mchardef\updownarrow"3"0"02195
+\mchardef\nwarrow"3"0"02196
+\mchardef\nearrow"3"0"02197
+\mchardef\searrow"3"0"02198
+\mchardef\swarrow"3"0"02199
+\mchardef\nleftarrow"3"0"0219A
+\mchardef\nrightarrow"3"0"0219B
+\mchardef\leftsquigarrow"3"0"0219C
+\mchardef\leftwavyarrow"3"0"0219C
+\mchardef\rightsquigarrow"3"0"0219D
+\mchardef\rightwavyarrow"3"0"0219D
+\mchardef\twoheadleftarrow"3"0"0219E
+\mchardef\twoheaduparrow"3"0"0219F
+\mchardef\twoheadrightarrow"3"0"021A0
+\mchardef\twoheaddownarrow"3"0"021A1
+\mchardef\leftarrowtail"3"0"021A2
+\mchardef\rightarrowtail"3"0"021A3
+\mchardef\mapsfrom"3"0"021A4
+\mchardef\mapsup"3"0"021A5
+\mchardef\mapsto"3"0"021A6
+\mchardef\mapsdown"3"0"021A7
+\mchardef\updownarrowbar"3"0"021A8
+\mchardef\hookleftarrow"3"0"021A9
+\mchardef\hookrightarrow"3"0"021AA
+\mchardef\looparrowleft"3"0"021AB
+\mchardef\looparrowright"3"0"021AC
+\mchardef\leftrightsquigarrow"3"0"021AD
+\mchardef\leftrightwavyarrow"3"0"021AD
+\mchardef\nleftrightarrow"3"0"021AE
+\mchardef\downzigzagarrow"3"0"021AF
+\mchardef\Lsh"3"0"021B0
+\mchardef\Rsh"3"0"021B1
+\mchardef\Ldsh"3"0"021B2
+\mchardef\Rdsh"3"0"021B3
+\mchardef\linefeed"6"0"021B4
+\mchardef\curvearrowleft"3"0"021B6
+\mchardef\curvearrowright"3"0"021B7
+\mchardef\barovernorthwestarrow"6"0"021B8
+\mchardef\barleftarrowrightarrowbar"6"0"021B9
+\mchardef\leftharpoonup"3"0"021BC
+\mchardef\leftharpoondown"3"0"021BD
+\mchardef\upharpoonright"3"0"021BE
+\mchardef\upharpoonleft"3"0"021BF
+\mchardef\rightharpoonup"3"0"021C0
+\mchardef\rightharpoondown"3"0"021C1
+\mchardef\downharpoonright"3"0"021C2
+\mchardef\downharpoonleft"3"0"021C3
+\mchardef\rightleftarrows"3"0"021C4
+\mchardef\updownarrows"3"0"021C5
+\mchardef\leftrightarrows"3"0"021C6
+\let\getsto\leftrightarrows
+\mchardef\leftleftarrows"3"0"021C7
+\mchardef\upuparrows"3"0"021C8
+\mchardef\rightrightarrows"3"0"021C9
+\mchardef\downdownarrows"3"0"021CA
+\mchardef\leftrightharpoons"3"0"021CB
+\mchardef\rightleftharpoons"3"0"021CC
+\mchardef\nLeftarrow"3"0"021CD
+\mchardef\nLeftrightarrow"3"0"021CE
+\mchardef\nRightarrow"3"0"021CF
+\mchardef\Leftarrow"3"0"021D0
+\mchardef\Uparrow"3"0"021D1
+\mchardef\Uparrowhead"6"0"021D1
+\mchardef\Rightarrow"3"0"021D2
+\mchardef\Downarrow"3"0"021D3
+\mchardef\Downarrowhead"6"0"021D3
+\mchardef\Leftrightarrow"3"0"021D4
+\mchardef\iff"3"0"021D4
+\mchardef\Updownarrow"3"0"021D5
+\mchardef\Nwarrow"3"0"021D6
+\mchardef\Nearrow"3"0"021D7
+\mchardef\Searrow"3"0"021D8
+\mchardef\Swarrow"3"0"021D9
+\mchardef\Lleftarrow"3"0"021DA
+\mchardef\Rrightarrow"3"0"021DB
+\mchardef\leftzigzagarrow"3"0"021DC
+\mchardef\longleftzigzagarrow"3"0"021DC
+\mchardef\rightzigzagarrow"3"0"021DD
+\let\leadsto\rightzigzagarrow
+\mchardef\nHuparrow"6"0"021DE
+\mchardef\nHdownarrow"6"0"021DF
+\mchardef\leftdasharrowhead"6"0"021E0
+\mchardef\rightdasharrowhead"6"0"021E2
+\mchardef\barleftarrow"3"0"021E4
+\mchardef\rightarrowbar"3"0"021E5
+\mchardef\leftwhitearrow"6"0"021E6
+\mchardef\upwhitearrow"6"0"021E7
+\mchardef\rightwhitearrow"6"0"021E8
+\mchardef\downwhitearrow"6"0"021E9
+\mchardef\whitearrowupfrombar"6"0"021EA
+\mchardef\circleonrightarrow"6"0"021F4
+\let\arrowoncirc\circleonrightarrow
+\mchardef\downuparrows"3"0"021F5
+\mchardef\rightthreearrows"3"0"021F6
+\mchardef\nvleftarrow"3"0"021F7
+\mchardef\nvrightarrow"3"0"021F8
+\mchardef\nvleftrightarrow"3"0"021F9
+\mchardef\nVleftarrow"3"0"021FA
+\mchardef\nVrightarrow"3"0"021FB
+\mchardef\nVleftrightarrow"3"0"021FC
+\mchardef\leftarrowtriangle"3"0"021FD
+\mchardef\rightarrowtriangle"3"0"021FE
+\mchardef\leftrightarrowtriangle"3"0"021FF
+\mchardef\forall"0"0"02200
+\mchardef\complement"0"0"02201
+\mchardef\partial"0"0"02202
+\mchardef\exists"0"0"02203
+\mchardef\nexists"0"0"02204
+\mchardef\varnothing"0"0"02205
+\let\oslash\varnothing
+\mchardef\emptyset"0"0"02205
+\mchardef\increment"0"0"02206
+\mchardef\nabla"0"0"02207
+\mchardef\in"3"0"02208
+\mchardef\varin"6"0"02208
+\mchardef\notin"3"0"02209
+\mchardef\smallin"3"0"0220A
+\mchardef\ni"3"0"0220B
+\mchardef\varni"6"0"0220B
+\mchardef\nni"3"0"0220C
+\mchardef\smallni"3"0"0220D
+\mchardef\QED"0"0"0220E
+\mchardef\prod"1"0"0220F
+\mchardef\coprod"1"0"02210
+\mchardef\sum"1"0"02211
+\mchardef\minus"2"0"02212
+\mchardef\mp"2"0"02213
+\mchardef\dotplus"2"0"02214
+\mchardef\slash"2"0"02215
+\mchardef\smallsetminus"2"0"02216
+\mchardef\setminus"2"0"02216
+\mchardef\ast"2"0"02217
+\mchardef\vysmwhtcircle"2"0"02218
+\let\circ\vysmwhtcircle
+%\mchardef\circ"6"0"02218
+\mchardef\vysmblkcircle"2"0"02219
+\let\bullet\vysmblkcircle
+\mchardef\bullet"2"0"02219
+\def\sqrt{\delim"4"0"0221A }
+\let\surd\sqrt
+\def\surd{\delim"4"0"0221A }
+\mchardef\propto"3"0"0221D
+\mchardef\varpropto"3"0"0221D
+\mchardef\infty"0"0"0221E
+\mchardef\rightangle"0"0"0221F
+\mchardef\angle"0"0"02220
+\mchardef\measuredangle"0"0"02221
+\mchardef\sphericalangle"0"0"02222
+\mchardef\mid"3"0"02223
+\mchardef\shortmid"3"0"02223
+\mchardef\nmid"3"0"02224
+\mchardef\nshortmid"3"0"02224
+\mchardef\parallel"3"0"02225
+\mchardef\shortparallel"3"0"02225
+\mchardef\nparallel"3"0"02226
+\mchardef\nshortparallel"3"0"02226
+\mchardef\wedge"2"0"02227
+\mchardef\vee"2"0"02228
+\mchardef\cap"2"0"02229
+\mchardef\cup"2"0"0222A
+\mchardef\intop"1"0"0222B
+\def\int{\intop\nolimits}
+\mchardef\smallint"1"0"0222B
+%\let\int\smallint
+\mchardef\iint"1"0"0222C
+\let\doubleint\iint
+\mchardef\iiint"1"0"0222D
+\mchardef\oint"1"0"0222E
+\mchardef\oiint"1"0"0222F
+\let\csi\oiint
+\mchardef\oiiint"1"0"02230
+\mchardef\intclockwise"1"0"02231
+\mchardef\varointclockwise"1"0"02232
+\mchardef\ointctrclockwise"1"0"02233
+\mchardef\therefore"0"0"02234
+\mchardef\because"0"0"02235
+\mchardef\dotminus"2"0"02238
+\mchardef\dashcolon"3"0"02239
+\mchardef\sim"3"0"0223C
+\mchardef\thicksim"3"0"0223C
+\mchardef\difference"3"0"0223C
+\mchardef\backsim"3"0"0223D
+\mchardef\sinewave"0"0"0223F
+\mchardef\wr"2"0"02240
+\mchardef\nsim"3"0"02241
+\mchardef\eqsim"3"0"02242
+\mchardef\simeq"3"0"02243
+\mchardef\nsime"3"0"02244
+\mchardef\cong"3"0"02245
+\mchardef\simneqq"3"0"02246
+\mchardef\ncong"3"0"02247
+\mchardef\approx"3"0"02248
+\mchardef\thickapprox"3"0"02248
+\mchardef\napprox"3"0"02249
+\mchardef\approxeq"3"0"0224A
+\mchardef\approxident"3"0"0224B
+\mchardef\backcong"3"0"0224C
+\mchardef\varbackcong"6"0"0224C
+\mchardef\asymp"3"0"0224D
+\mchardef\Bumpeq"3"0"0224E
+\mchardef\bumpeq"3"0"0224F
+\mchardef\doteq"3"0"02250
+\mchardef\Doteq"3"0"02251
+\mchardef\fallingdotseq"3"0"02252
+\mchardef\risingdotseq"3"0"02253
+\mchardef\coloneq"3"0"02254
+\mchardef\eqcolon"3"0"02255
+\mchardef\eqcirc"3"0"02256
+\mchardef\circeq"3"0"02257
+\mchardef\arceq"3"0"02258
+\mchardef\wedgeq"3"0"02259
+\let\cor\wedgeq
+\mchardef\veeeq"3"0"0225A
+\mchardef\stareq"3"0"0225B
+\mchardef\triangleq"3"0"0225C
+\let\de\triangleq
+\mchardef\eqdef"3"0"0225D
+\mchardef\measeq"3"0"0225E
+\mchardef\questeq"3"0"0225F
+\mchardef\ne"3"0"02260
+\mchardef\equiv"3"0"02261
+\mchardef\nequiv"3"0"02262
+\mchardef\Equiv"3"0"02263
+\mchardef\leq"3"0"02264
+\let\le\leq
+\mchardef\geq"3"0"02265
+\let\ge\geq
+\mchardef\leqq"3"0"02266
+\let\lid\leqq
+\mchardef\geqq"3"0"02267
+\let\gid\geqq
+\mchardef\lneqq"3"0"02268
+\mchardef\gneqq"3"0"02269
+\mchardef\ll"3"0"0226A
+\mchardef\gg"3"0"0226B
+\mchardef\between"3"0"0226C
+\mchardef\nasymp"3"0"0226D
+\mchardef\nless"3"0"0226E
+\mchardef\ngtr"3"0"0226F
+\mchardef\nleq"3"0"02270
+\mchardef\ngeq"3"0"02271
+\mchardef\lesssim"3"0"02272
+\let\la\lesssim
+\mchardef\gtrsim"3"0"02273
+\let\ga\gtrsim
+\mchardef\nlesssim"3"0"02274
+\mchardef\ngtrsim"3"0"02275
+\mchardef\lessgtr"3"0"02276
+\let\leogr\lessgtr
+\mchardef\gtrless"3"0"02277
+\let\grole\gtrless
+\mchardef\nlessgtr"3"0"02278
+\mchardef\ngtrless"3"0"02279
+\mchardef\prec"3"0"0227A
+\mchardef\succ"3"0"0227B
+\mchardef\preccurlyeq"3"0"0227C
+\mchardef\succcurlyeq"3"0"0227D
+\mchardef\precsim"3"0"0227E
+\mchardef\succsim"3"0"0227F
+\mchardef\nprec"3"0"02280
+\mchardef\nsucc"3"0"02281
+\mchardef\subset"3"0"02282
+\mchardef\supset"3"0"02283
+\mchardef\nsubset"3"0"02284
+\mchardef\nsupset"3"0"02285
+\mchardef\subseteq"3"0"02286
+\mchardef\supseteq"3"0"02287
+\mchardef\nsubseteq"3"0"02288
+\mchardef\nsupseteq"3"0"02289
+\mchardef\subsetneq"3"0"0228A
+\mchardef\supsetneq"3"0"0228B
+\mchardef\cupleftarrow"6"0"0228C
+\mchardef\cupdot"2"0"0228D
+\mchardef\uplus"2"0"0228E
+\mchardef\sqsubset"3"0"0228F
+\mchardef\sqsupset"3"0"02290
+\mchardef\sqsubseteq"3"0"02291
+\mchardef\sqsupseteq"3"0"02292
+\mchardef\sqcap"2"0"02293
+\mchardef\sqcup"2"0"02294
+\mchardef\oplus"2"0"02295
+\mchardef\ominus"2"0"02296
+\mchardef\otimes"2"0"02297
+\mchardef\oslash"2"0"02298
+\mchardef\odot"2"0"02299
+\mchardef\circledcirc"2"0"0229A
+\mchardef\circledast"2"0"0229B
+\let\circast\circledast
+\mchardef\circledequal"3"0"0229C
+\mchardef\circleddash"2"0"0229D
+\mchardef\boxplus"2"0"0229E
+\mchardef\boxminus"2"0"0229F
+\mchardef\boxtimes"2"0"022A0
+\mchardef\boxdot"2"0"022A1
+\let\squaredot\boxdot
+\mchardef\vdash"3"0"022A2
+\mchardef\dashv"3"0"022A3
+\mchardef\top"0"0"022A4
+\mchardef\bot"0"0"022A5
+\mchardef\assert"3"0"022A6
+\mchardef\models"3"0"022A7
+\mchardef\vDash"3"0"022A8
+\let\models\vDash
+\mchardef\Vdash"3"0"022A9
+\mchardef\Vvdash"3"0"022AA
+\mchardef\VDash"3"0"022AB
+\mchardef\nvdash"3"0"022AC
+\mchardef\nvDash"3"0"022AD
+\mchardef\nVdash"3"0"022AE
+\mchardef\nVDash"3"0"022AF
+\mchardef\prurel"3"0"022B0
+\mchardef\scurel"3"0"022B1
+\mchardef\vartriangleleft"3"0"022B2
+\mchardef\vartriangleright"3"0"022B3
+\mchardef\trianglelefteq"3"0"022B4
+\mchardef\trianglerighteq"3"0"022B5
+\mchardef\origof"3"0"022B6
+\mchardef\imageof"3"0"022B7
+\mchardef\multimap"3"0"022B8
+\mchardef\intercal"2"0"022BA
+\mchardef\veebar"2"0"EB7A
+\mchardef\barwedge"2"0"022BC
+\mchardef\barvee"2"0"022BD
+\mchardef\barvee"6"0"022BD
+\mchardef\varlrtriangle"6"0"022BF
+\mchardef\bigwedge"1"0"022C0
+\mchardef\bigvee"1"0"022C1
+\mchardef\bigcap"1"0"022C2
+\mchardef\bigcup"1"0"022C3
+\mchardef\smwhtdiamond"2"0"022C4
+\mchardef\diamond"2"0"022C4
+\mchardef\cdot"2"0"022C5
+\mchardef\tnyblkcircle"2"0"022C5
+\let\cdot\tnyblkcircle
+\mchardef\star"2"0"022C6
+\mchardef\divideontimes"2"0"022C7
+\mchardef\bowtie"3"0"022C8
+\mchardef\ltimes"2"0"022C9
+\mchardef\rtimes"2"0"022CA
+\mchardef\leftthreetimes"2"0"022CB
+\mchardef\rightthreetimes"2"0"022CC
+\mchardef\backsimeq"3"0"022CD
+\mchardef\curlyvee"2"0"022CE
+\mchardef\curlywedge"2"0"022CF
+\mchardef\Subset"3"0"022D0
+\mchardef\Supset"3"0"022D1
+\mchardef\Cap"2"0"022D2
+\mchardef\Cup"2"0"022D3
+\mchardef\pitchfork"3"0"022D4
+\mchardef\equalparallel"6"0"022D5
+\mchardef\lessdot"3"0"022D6
+\mchardef\gtrdot"3"0"022D7
+\mchardef\lll"3"0"022D8
+\mchardef\ggg"3"0"022D9
+\mchardef\lesseqgtr"3"0"022DA
+\mchardef\gtreqless"3"0"022DB
+\mchardef\eqless"3"0"022DC
+\mchardef\eqgtr"3"0"022DD
+\mchardef\curlyeqprec"3"0"022DE
+\mchardef\curlyeqsucc"3"0"022DF
+\mchardef\npreccurlyeq"3"0"022E0
+\mchardef\nsucccurlyeq"3"0"022E1
+\mchardef\nsqsubseteq"3"0"022E2
+\mchardef\nsqsupseteq"3"0"022E3
+\mchardef\sqsubsetneq"3"0"022E4
+\mchardef\sqsupsetneq"3"0"022E5
+\mchardef\lnsim"3"0"022E6
+\mchardef\gnsim"3"0"022E7
+\mchardef\precnsim"3"0"022E8
+\mchardef\succnsim"3"0"022E9
+\mchardef\ntriangleleft"3"0"022EA
+\mchardef\ntriangleright"3"0"022EB
+\mchardef\ntrianglelefteq"3"0"022EC
+\mchardef\ntrianglerighteq"3"0"022ED
+\mchardef\disin"3"0"022F2
+\mchardef\varisins"6"0"022F3
+\mchardef\isins"3"0"022F4
+\mchardef\isindot"3"0"022F5
+\mchardef\varisinobar"6"0"022F6
+\mchardef\isinobar"6"0"022F7
+\mchardef\isinvb"3"0"022F8
+\mchardef\isinE"3"0"022F9
+\mchardef\nisd"3"0"022FA
+\mchardef\varnis"6"0"022FB
+\mchardef\nis"3"0"022FC
+\mchardef\varniobar"6"0"022FD
+\mchardef\niobar"6"0"022FE
+\mchardef\bagmember"3"0"022FF
+\mchardef\varbarwedge"2"0"02305
+\mchardef\vardoublebarwedge"2"0"02306
+\def\lceil{\delim"4"0"02308 }
+\def\rceil{\delim"5"0"02309 }
+\def\lfloor{\delim"4"0"0230A }
+\def\rfloor{\delim"5"0"0230B }
+\def\drcrop{\delim"0"0"0230C }
+\def\dlcrop{\delim"0"0"0230D }
+\def\urcrop{\delim"0"0"0230E }
+\def\ulcrop{\delim"0"0"0230F }
+\mchardef\profline"0"0"02312
+\mchardef\profsurf"0"0"02313
+\def\ulcorner{\delim"4"0"0231C }
+\def\urcorner{\delim"5"0"0231D }
+\def\llcorner{\delim"4"0"0231E }
+\def\lrcorner{\delim"5"0"0231F }
+\mchardef\frown"3"0"02322
+\mchardef\smallfrown"3"0"02322
+\mchardef\smile"3"0"02323
+\mchardef\smallsmile"3"0"02323
+\mchardef\cylcty"0"0"0232D
+\mchardef\profalar"0"0"0232E
+\mchardef\conictaper"0"0"02332
+\mchardef\obar"2"0"0233D
+\mchardef\APLnotslash"3"0"0233F
+\mchardef\APLboxupcaret"0"0"02353
+\mchardef\APLboxquestion"0"0"02370
+\mchardef\hexagon"0"0"02394
+\def\hlineextender{\delim"0"0"023AF }
+\def\sumtop{\delim"0"0"023B2 }
+\def\sumbottom{\delim"0"0"023B3 }
+\def\overbracket{\maccent"7"0"023B4 }
+\def\underbracket{\maccent"7"0"023B5 }
+\mchardef\varcarriagereturn"6"0"023CE
+\mchardef\trapezium"0"0"023E2
+\mchardef\benzenr"0"0"023E3
+\mchardef\strns"0"0"023E4
+\mchardef\fltns"0"0"023E5
+\mchardef\accurrent"0"0"023E6
+\mchardef\elinters"0"0"023E7
+\mchardef\circledone"0"0"02460
+\mchardef\circledtwo"0"0"02461
+\mchardef\circledthree"0"0"02462
+\mchardef\circledfour"0"0"02463
+\mchardef\circledfive"0"0"02464
+\mchardef\circledsix"0"0"02465
+\mchardef\circledseven"0"0"02466
+\mchardef\circledeight"0"0"02467
+\mchardef\circlednine"0"0"02468
+\mchardef\circledA"0"0"024B6
+\mchardef\circledB"0"0"024B7
+\mchardef\circledC"0"0"024B8
+\mchardef\circledD"0"0"024B9
+\mchardef\circledE"0"0"024BA
+\mchardef\circledF"0"0"7646
+\mchardef\circledG"0"0"024BC
+\mchardef\circledH"0"0"024BD
+\mchardef\circledI"0"0"024BE
+\mchardef\circledJ"0"0"024BF
+\mchardef\circledK"0"0"024C0
+\mchardef\circledL"0"0"024C1
+\mchardef\circledM"0"0"024C2
+\mchardef\circledN"0"0"024C3
+\mchardef\circledO"0"0"024C4
+\mchardef\circledP"0"0"024C5
+\mchardef\circledQ"0"0"024C6
+\mchardef\circledR"0"0"024C7
+\mchardef\circledS"0"0"024C8
+\let\circS\circledS
+\mchardef\circledT"0"0"024C9
+\mchardef\circledU"0"0"024CA
+\mchardef\circledV"0"0"024CB
+\mchardef\circledW"0"0"024CC
+\mchardef\circledX"0"0"024CD
+\mchardef\circledY"0"0"024CE
+\mchardef\circledZ"0"0"024CF
+\mchardef\circleda"0"0"024D0
+\mchardef\circledb"0"0"024D1
+\mchardef\circledc"0"0"024D2
+\mchardef\circledd"0"0"024D3
+\mchardef\circlede"0"0"024D4
+\mchardef\circledf"0"0"024D5
+\mchardef\circledg"0"0"024D6
+\mchardef\circledh"0"0"024D7
+\mchardef\circledi"0"0"024D8
+\mchardef\circledj"0"0"024D9
+\mchardef\circledk"0"0"024DA
+\mchardef\circledl"0"0"024DB
+\mchardef\circledm"0"0"024DC
+\mchardef\circledn"0"0"024DD
+\mchardef\circledo"0"0"024DE
+\mchardef\circledp"0"0"024DF
+\mchardef\circledq"0"0"024E0
+\mchardef\circledr"0"0"024E1
+\mchardef\circleds"0"0"024E2
+\mchardef\circledt"0"0"024E3
+\mchardef\circledu"0"0"024E4
+\mchardef\circledv"0"0"024E5
+\mchardef\circledw"0"0"024E6
+\mchardef\circledx"0"0"024E7
+\mchardef\circledy"0"0"024E8
+\mchardef\circledz"0"0"024E9
+\mchardef\circledzero"0"0"024EA
+\mchardef\bdquadhdash"0"0"02508
+\mchardef\bdquadvdash"0"0"0250A
+\mchardef\mdlgblksquare"0"0"025A0
+\mchardef\squoval"0"0"025A2
+\mchardef\squarehvfill"0"0"025A6
+\mchardef\squarecrossfill"0"0"025A9
+\mchardef\squaregrayfill"0"0"025A9
+\mchardef\smblksquare"0"0"025AA
+\mchardef\smwhtsquare"0"0"025AB
+\mchardef\vrectangleblack"0"0"025AE
+\mchardef\triangleright"2"0"025B7
+\mchardef\smallblacktriangleright"6"0"025B8
+\mchardef\smalltriangleright"6"0"025B9
+\mchardef\triangleleft"2"0"025C1
+\mchardef\smallblacktriangleleft"6"0"025C2
+\mchardef\smalltriangleleft"6"0"025C3
+\mchardef\blackpointerleft"6"0"025C4
+\mchardef\whitepointerleft"6"0"025C5
+\mchardef\mdlgblkdiamond"0"0"025C6
+\mchardef\mdlgwhtdiamond"0"0"025C7
+\let\diamond\mdlgwhtdiamond
+\mchardef\blackinwhitediamond"0"0"025C8
+\mchardef\fisheye"0"0"025C9
+\mchardef\mdlgwhtcircle"2"0"025CB
+\let\bigcirc\mdlgwhtcircle
+\mchardef\bigcirc"2"0"025CB
+\mchardef\dottedcircle"0"0"025CC
+\mchardef\circlevertfill"0"0"025CD
+\mchardef\bullseye"0"0"025CE
+\mchardef\circleurquadblack"0"0"025D4
+\mchardef\blackcircleulquadwhite"0"0"025D5
+\mchardef\blacklefthalfcircle"0"0"025D6
+\mchardef\blackrighthalfcircle"0"0"025D7
+\mchardef\inversewhitecircle"0"0"025D9
+\mchardef\invwhiteupperhalfcircle"0"0"025DA
+\mchardef\invwhitelowerhalfcircle"0"0"025DB
+\mchardef\ularc"0"0"025DC
+\mchardef\urarc"0"0"025DD
+\mchardef\lrarc"0"0"025DE
+\mchardef\llarc"0"0"025DF
+\mchardef\topsemicircle"0"0"025E0
+\mchardef\botsemicircle"0"0"025E1
+\mchardef\llblacktriangle"0"0"025E3
+\mchardef\urblacktriangle"0"0"025E5
+\mchardef\boxbar"2"0"025EB
+\mchardef\lgwhtcircle"0"0"025EF
+\mchardef\squareulquad"0"0"025F0
+\mchardef\squarellquad"0"0"025F1
+\mchardef\squarelrquad"0"0"025F2
+\mchardef\squareurquad"0"0"025F3
+\mchardef\circleulquad"0"0"025F4
+\mchardef\circlellquad"0"0"025F5
+\mchardef\circlelrquad"0"0"025F6
+\mchardef\circleurquad"0"0"025F7
+\mchardef\mdwhtsquare"0"0"025FB
+\mchardef\mdblksquare"0"0"025FC
+\mchardef\mdsmwhtsquare"0"0"025FD
+\mchardef\mdsmblksquare"0"0"025FE
+\mchardef\lrtriangle"0"0"025FF
+\mchardef\phone"0"0"0260E
+\mchardef\XBox"0"0"02612
+\mchardef\danger"0"0"02621
+\mchardef\frownie"0"0"02639
+\mchardef\smiley"0"0"0263A
+\mchardef\rightmoon"0"0"0263D
+\mchardef\leftmoon"0"0"0263E
+\mchardef\mercury"0"0"0263F
+\mchardef\female"0"0"02640
+\mchardef\earth"0"0"02641
+\mchardef\male"0"0"02642
+\mchardef\jupiter"0"0"02643
+\mchardef\saturn"0"0"02644
+\mchardef\neptune"0"0"02646
+\mchardef\pluto"0"0"02647
+\mchardef\aries"0"0"02648
+\mchardef\taurus"0"0"02649
+\mchardef\spadesuit"0"0"02660
+\mchardef\heartsuit"0"0"02661
+\mchardef\diamondsuit"0"0"02662
+\mchardef\clubsuit"0"0"02663
+\mchardef\varspadesuit"0"0"02664
+\mchardef\varheartsuit"0"0"02665
+\mchardef\vardiamondsuit"0"0"02666
+\mchardef\varclubsuit"0"0"02667
+\mchardef\quarternote"0"0"02669
+\mchardef\flat"0"0"0266D
+\mchardef\natural"0"0"0266E
+\mchardef\sharp"0"0"0266F
+\mchardef\triangleexclam"0"0"026A0
+\mchardef\Hermaphrodite"0"0"026A5
+\mchardef\mdwhtcircle"0"0"026AA
+\mchardef\mdblkcircle"0"0"026AB
+\mchardef\mdsmwhtcircle"0"0"026AC
+\mchardef\neuter"0"0"026B2
+\mchardef\scissors"0"0"02702
+\mchardef\envelope"0"0"02709
+\mchardef\checkmark"0"0"02713
+\mchardef\maltese"0"0"02720
+\mchardef\varstar"0"0"02736
+\mchardef\dingasterisk"0"0"0273D
+\def\lbrbrak{\delim"4"0"02772 }
+\def\rbrbrak{\delim"5"0"02773 }
+\mchardef\perp"3"0"027C2
+\def\lbag{\delim"4"0"027C5 }
+\def\rbag{\delim"5"0"027C6 }
+\mchardef\veedot"6"0"027C7
+\mchardef\bsolhsub"3"0"027C8
+\mchardef\suphsol"3"0"027C9
+\mchardef\diamondcdot"0"0"027D0
+\mchardef\wedgedot"2"0"027D1
+\mchardef\upin"3"0"027D2
+\mchardef\pullback"3"0"027D3
+\mchardef\pushout"3"0"027D4
+\mchardef\leftouterjoin"1"0"027D5
+\mchardef\rightouterjoin"1"0"027D6
+\mchardef\fullouterjoin"1"0"027D7
+\mchardef\bigbot"1"0"027D8
+\mchardef\bigtop"1"0"027D9
+\mchardef\DashVDash"3"0"027DA
+\mchardef\dashVdash"3"0"027DB
+\mchardef\multimapinv"3"0"027DC
+\mchardef\vlongdash"3"0"027DD
+\mchardef\longdashv"3"0"027DE
+\mchardef\cirbot"3"0"027DF
+\mchardef\lozengeminus"2"0"027E0
+\mchardef\concavediamond"2"0"027E1
+\mchardef\concavediamondtickleft"2"0"027E2
+\mchardef\concavediamondtickright"2"0"027E3
+\mchardef\whitesquaretickleft"2"0"027E4
+\mchardef\whitesquaretickright"2"0"027E5
+\def\lBrack{\delim"4"0"027E6 }
+\def\rBrack{\delim"5"0"027E7 }
+\def\langle{\delim"4"0"027E8 }
+\def\rangle{\delim"5"0"027E9 }
+\def\lAngle{\delim"4"0"027EA }
+\def\rAngle{\delim"5"0"027EB }
+\def\Lbrbrak{\delim"4"0"027EC }
+\def\Rbrbrak{\delim"5"0"027ED }
+\mchardef\UUparrow"3"0"027F0
+\mchardef\DDownarrow"3"0"027F1
+\mchardef\acwgapcirclearrow"3"0"027F2
+\mchardef\cwgapcirclearrow"3"0"027F3
+\mchardef\rightarrowonoplus"6"0"027F4
+\let\arrowonoplus\rightarrowonoplus
+\mchardef\longleftarrow"3"0"027F5
+\mchardef\longrightarrow"3"0"027F6
+\mchardef\longleftrightarrow"3"0"027F7
+\mchardef\Longleftarrow"3"0"027F8
+\mchardef\Longrightarrow"3"0"027F9
+\mchardef\Longleftrightarrow"3"0"027FA
+\mchardef\longmapsfrom"3"0"027FB
+\mchardef\longmapsto"3"0"027FC
+\mchardef\Longmapsfrom"3"0"027FD
+\mchardef\Longmapsto"3"0"027FE
+\mchardef\longrightzigzagarrow"3"0"027FF
+\mchardef\nvtwoheadrightarrow"3"0"02900
+\mchardef\nVtwoheadrightarrow"3"0"02901
+\mchardef\nvLeftarrow"3"0"02902
+\mchardef\nvRightarrow"3"0"02903
+\mchardef\nvLeftrightarrow"3"0"02904
+\mchardef\twoheadmapsto"3"0"02905
+\mchardef\Mapsfrom"3"0"02906
+\mchardef\Mapsto"3"0"02907
+\mchardef\downarrowbarred"3"0"02908
+\mchardef\uparrowbarred"3"0"02909
+\mchardef\Uuparrow"3"0"0290A
+\mchardef\Ddownarrow"3"0"0290B
+\mchardef\leftbkarrow"3"0"0290C
+\mchardef\rightbkarrow"3"0"0290D
+\mchardef\leftdbkarrow"3"0"0290E
+\mchardef\dbkarow"3"0"0290F
+\mchardef\rightdbkarrow"3"0"0290F
+\mchardef\drbkarow"3"0"02910
+\mchardef\rightdotarrow"3"0"02911
+\mchardef\baruparrow"3"0"02912
+\mchardef\downarrowbar"3"0"02913
+\mchardef\nvrightarrowtail"3"0"02914
+\mchardef\nVrightarrowtail"3"0"02915
+\mchardef\twoheadrightarrowtail"3"0"02916
+\mchardef\nvtwoheadrightarrowtail"3"0"02917
+\mchardef\nVtwoheadrightarrowtail"3"0"02918
+\mchardef\lefttail"3"0"02919
+\mchardef\righttail"3"0"0291A
+\mchardef\leftdbltail"3"0"0291B
+\mchardef\rightdbltail"3"0"0291C
+\mchardef\diamondleftarrow"3"0"0291D
+\mchardef\rightarrowdiamond"3"0"0291E
+\mchardef\diamondleftarrowbar"3"0"0291F
+\mchardef\barrightarrowdiamond"3"0"02920
+\mchardef\nwsearrow"3"0"02921
+\mchardef\neswarrow"3"0"02922
+\mchardef\hknwarrow"3"0"02923
+\mchardef\hknearrow"3"0"02924
+\mchardef\hksearow"3"0"02925
+\mchardef\hksearrow"3"0"02925
+\mchardef\hkswarow"3"0"02926
+\mchardef\hkswarrow"3"0"02926
+\mchardef\tona"3"0"02927
+\mchardef\toea"3"0"02928
+\mchardef\tosa"3"0"02929
+\mchardef\towa"3"0"0292A
+\mchardef\rightcurvedarrow"3"0"02933
+\mchardef\uprightcurvearrow"0"0"02934
+\mchardef\downrightcurvedarrow"0"0"02935
+\mchardef\leftdowncurvedarrow"3"0"02936
+\mchardef\rightdowncurvedarrow"3"0"02937
+\mchardef\cwrightarcarrow"3"0"02938
+\mchardef\acwleftarcarrow"3"0"02939
+\mchardef\acwoverarcarrow"6"0"0293A
+\mchardef\acwunderarcarrow"3"0"0293B
+\mchardef\curvearrowrightminus"3"0"0293C
+\mchardef\curvearrowleftplus"3"0"0293D
+\mchardef\cwundercurvearrow"3"0"0293E
+\mchardef\ccwundercurvearrow"6"0"0293F
+\mchardef\acwcirclearrow"3"0"02940
+\mchardef\cwcirclearrow"3"0"02941
+\mchardef\rightarrowshortleftarrow"3"0"02942
+\mchardef\leftarrowshortrightarrow"3"0"02943
+\mchardef\shortrightarrowleftarrow"3"0"02944
+\mchardef\rightarrowplus"3"0"02945
+\mchardef\leftarrowplus"3"0"02946
+\mchardef\rightarrowx"3"0"02947
+\mchardef\leftrightarrowcircle"3"0"02948
+\mchardef\twoheaduparrowcircle"3"0"02949
+\mchardef\leftrightharpoonupdown"3"0"0294A
+\mchardef\leftrightharpoondownup"3"0"0294B
+\mchardef\updownharpoonrightleft"3"0"0294C
+\mchardef\updownharpoonleftright"3"0"0294D
+\mchardef\leftrightharpoonupup"3"0"0294E
+\mchardef\updownharpoonrightright"3"0"0294F
+\mchardef\leftrightharpoondowndown"3"0"02950
+\mchardef\updownharpoonleftleft"3"0"02951
+\mchardef\barleftharpoonup"3"0"02952
+\mchardef\rightharpoonupbar"3"0"02953
+\mchardef\barupharpoonright"3"0"02954
+\mchardef\downharpoonrightbar"3"0"02955
+\mchardef\barleftharpoondown"3"0"02956
+\mchardef\rightharpoondownbar"3"0"02957
+\mchardef\barupharpoonleft"3"0"02958
+\mchardef\downharpoonleftbar"3"0"02959
+\mchardef\leftharpoonupbar"3"0"0295A
+\mchardef\barrightharpoonup"3"0"0295B
+\mchardef\upharpoonrightbar"3"0"0295C
+\mchardef\bardownharpoonright"3"0"0295D
+\mchardef\leftharpoondownbar"3"0"0295E
+\mchardef\barrightharpoondown"3"0"0295F
+\mchardef\upharpoonleftbar"3"0"02960
+\mchardef\bardownharpoonleft"3"0"02961
+\mchardef\leftharpoonsupdown"3"0"02962
+\mchardef\upharpoonsleftright"3"0"02963
+\mchardef\rightharpoonsupdown"3"0"02964
+\mchardef\downharpoonsleftright"3"0"02965
+\mchardef\leftrightharpoonsup"3"0"02966
+\mchardef\leftrightharpoonsdown"3"0"02967
+\mchardef\rightleftharpoonsup"3"0"02968
+\mchardef\rightleftharpoonsdown"3"0"02969
+\mchardef\leftharpoonupdash"3"0"0296A
+\mchardef\dashleftharpoondown"3"0"0296B
+\mchardef\rightharpoonupdash"3"0"0296C
+\mchardef\dashrightharpoondown"3"0"0296D
+\mchardef\updownharpoonsleftright"3"0"0296E
+\mchardef\downupharpoonsleftright"3"0"0296F
+\mchardef\rightimply"3"0"02970
+\mchardef\equalrightarrow"3"0"02971
+\mchardef\similarrightarrow"3"0"02972
+\mchardef\leftarrowsimilar"3"0"02973
+\mchardef\rightarrowsimilar"3"0"02974
+\mchardef\rightarrowapprox"3"0"02975
+\mchardef\ltlarr"3"0"02976
+\mchardef\leftarrowless"3"0"02977
+\mchardef\gtrarr"3"0"02978
+\mchardef\subrarr"3"0"02979
+\mchardef\leftarrowsubset"3"0"0297A
+\mchardef\suplarr"3"0"0297B
+\mchardef\leftfishtail"3"0"0297C
+\mchardef\rightfishtail"3"0"0297D
+\mchardef\upfishtail"3"0"0297E
+\mchardef\downfishtail"3"0"0297F
+\mchardef\mdsmblkcircle"0"0"02981
+\def\typecolon{\delim"0"0"02982 }
+\def\lBrace{\delim"4"0"02983 }
+\def\rBrace{\delim"5"0"02984 }
+\def\lParen{\delim"4"0"02985 }
+\def\rParen{\delim"5"0"02986 }
+\def\llparenthesis{\delim"4"0"02987 }
+\def\rrparenthesis{\delim"5"0"02988 }
+\def\llangle{\delim"4"0"02989 }
+\def\rrangle{\delim"5"0"0298A }
+\def\lbrackubar{\delim"0"0"0298B }
+\def\rbrackubar{\delim"0"0"0298C }
+\def\lbrackultick{\delim"0"0"0298D }
+\def\rbracklrtick{\delim"0"0"0298E }
+\def\lbracklltick{\delim"0"0"0298F }
+\def\rbrackurtick{\delim"0"0"02990 }
+\def\langledot{\delim"0"0"02991 }
+\def\rangledot{\delim"0"0"02992 }
+\def\lparenless{\delim"4"0"02993 }
+\def\rparengtr{\delim"5"0"02994 }
+\def\Lparengtr{\delim"0"0"02995 }
+\def\Rparenless{\delim"0"0"02996 }
+\def\lblkbrbrak{\delim"0"0"02997 }
+\def\rblkbrbrak{\delim"0"0"02998 }
+\mchardef\vzigzag"0"0"0299A
+\mchardef\measuredangleleft"0"0"0299B
+\mchardef\rightanglemdot"0"0"0299D
+\mchardef\angles"6"0"0299E
+\mchardef\sphericalangleup"0"0"029A1
+\mchardef\angleubar"6"0"029A4
+\mchardef\revangleubar"6"0"029A5
+\mchardef\wideangledown"0"0"029A6
+\mchardef\wideangleup"0"0"029A7
+\mchardef\measanglerutone"0"0"029A8
+\mchardef\measanglelutonw"0"0"029A9
+\mchardef\measanglerdtose"0"0"029AA
+\mchardef\measangleldtosw"0"0"029AB
+\mchardef\measangleurtone"0"0"029AC
+\mchardef\measangleultonw"0"0"029AD
+\mchardef\measangledrtose"0"0"029AE
+\mchardef\measangledltosw"0"0"029AF
+\mchardef\revemptyset"0"0"029B0
+\mchardef\emptysetobar"0"0"029B1
+\mchardef\emptysetocirc"0"0"029B2
+\mchardef\emptysetoarr"0"0"029B3
+\mchardef\emptysetoarrl"0"0"029B4
+\mchardef\circlehbar"2"0"029B5
+\mchardef\circledvert"2"0"029B6
+\mchardef\circledparallel"2"0"029B7
+\mchardef\obslash"2"0"029B8
+\mchardef\operp"6"0"029B9
+\mchardef\obot"0"0"029BA
+\mchardef\olcross"0"0"E3A8
+\mchardef\odotslashdot"6"0"029BC
+\mchardef\uparrowoncircle"0"0"029BD
+\mchardef\circledwhitebullet"0"0"029BE
+\mchardef\circledbullet"6"0"029BF
+\mchardef\olessthan"3"0"029C0
+\mchardef\ogreaterthan"3"0"029C1
+\mchardef\cirscir"0"0"029C2
+\mchardef\cirE"0"0"029C3
+\mchardef\boxdiag"2"0"029C4
+\mchardef\boxbslash"2"0"029C5
+\mchardef\boxast"2"0"029C6
+\mchardef\boxcircle"2"0"029C7
+\mchardef\boxbox"2"0"029C8
+\mchardef\boxonbox"0"0"029C9
+\mchardef\triangleodot"0"0"029CA
+\mchardef\triangleubar"0"0"029CB
+\mchardef\triangles"0"0"029CC
+\mchardef\triangleserifs"6"0"029CD
+\mchardef\rtriltri"3"0"029CE
+\mchardef\ltrivb"3"0"029CF
+\mchardef\vbrtri"3"0"029D0
+\mchardef\lfbowtie"3"0"029D1
+\mchardef\rfbowtie"3"0"029D2
+\mchardef\fbowtie"3"0"029D3
+\mchardef\lftimes"3"0"029D4
+\mchardef\rftimes"3"0"029D5
+\mchardef\hourglass"2"0"029D6
+\mchardef\blackhourglass"2"0"029D7
+\def\lvzigzag{\delim"4"0"029D8 }
+\def\rvzigzag{\delim"5"0"029D9 }
+\def\Lvzigzag{\delim"4"0"029DA }
+\def\Rvzigzag{\delim"5"0"029DB }
+\mchardef\iinfin"0"0"029DC
+\mchardef\tieinfty"0"0"029DD
+\mchardef\nvinfty"0"0"029DE
+\mchardef\dualmap"3"0"029DF
+\mchardef\laplac"0"0"029E0
+\mchardef\lrtriangleeq"6"0"029E1
+\mchardef\eparsl"0"0"029E3
+\mchardef\smeparsl"0"0"029E4
+\mchardef\eqvparsl"3"0"029E5
+\mchardef\gleichstark"3"0"029E6
+\mchardef\thermod"0"0"029E7
+\mchardef\downtriangleleftblack"0"0"029E8
+\mchardef\downtrianglerightblack"0"0"029E9
+\mchardef\blackdiamonddownarrow"0"0"029EA
+\mchardef\mdlgblklozenge"2"0"029EB
+\mchardef\blacklozenge"2"0"029EB
+\mchardef\circledownarrow"0"0"029EC
+\mchardef\blackcircledownarrow"0"0"029ED
+\mchardef\errbarsquare"0"0"029EE
+\mchardef\errbarblacksquare"0"0"029EF
+\mchardef\errbardiamond"0"0"029F0
+\mchardef\errbarblackdiamond"0"0"029F1
+\mchardef\errbarcircle"0"0"029F2
+\mchardef\errbarblackcircle"0"0"029F3
+\mchardef\ruledelayed"3"0"029F4
+\mchardef\opbackslash"2"0"029F5
+\mchardef\dsol"2"0"029F6
+\mchardef\rsolbar"2"0"029F7
+\mchardef\xsol"1"0"029F8
+\mchardef\xbsol"1"0"029F9
+\mchardef\doubleplus"2"0"029FA
+\mchardef\tripleplus"2"0"029FB
+\def\lcurvyangle{\delim"4"0"029FC }
+\def\rcurvyangle{\delim"5"0"029FD }
+\mchardef\tplus"2"0"029FE
+\mchardef\tminus"2"0"029FF
+\mchardef\bigodot"1"0"02A00
+\mchardef\bigoplus"1"0"02A01
+\mchardef\bigotimes"1"0"02A02
+\mchardef\bigcupdot"1"0"02A03
+\mchardef\biguplus"1"0"02A04
+\mchardef\bigsqcap"1"0"02A05
+\mchardef\bigsqcup"1"0"02A06
+\mchardef\conjquant"1"0"02A07
+\mchardef\disjquant"1"0"02A08
+\mchardef\bigtimes"1"0"02A09
+\mchardef\sumint"1"0"02A0B
+\mchardef\iiiint"1"0"02A0C
+\mchardef\intbar"1"0"02A0D
+\mchardef\intBar"1"0"02A0E
+\mchardef\fint"1"0"02A0F
+\mchardef\cirfnint"1"0"02A10
+\mchardef\awint"1"0"02A11
+\mchardef\rppolint"1"0"02A12
+\mchardef\scpolint"1"0"02A13
+\mchardef\npolint"1"0"02A14
+\mchardef\pointint"1"0"02A15
+\mchardef\sqint"1"0"02A16
+\mchardef\intlarhk"1"0"02A17
+\mchardef\intx"1"0"02A18
+\mchardef\intcap"1"0"02A19
+\mchardef\intcup"1"0"02A1A
+\mchardef\upint"1"0"02A1B
+\mchardef\lowint"1"0"02A1C
+\mchardef\Join"1"0"02A1D
+\mchardef\bigtriangleleft"1"0"02A1E
+\mchardef\zcmp"1"0"02A1F
+\mchardef\zpipe"1"0"02A20
+\mchardef\zproject"1"0"02A21
+\mchardef\ringplus"3"0"02A22
+\mchardef\plushat"3"0"02A23
+\mchardef\simplus"3"0"02A24
+\mchardef\plusdot"2"0"02A25
+\mchardef\plussim"3"0"02A26
+\mchardef\plussubtwo"3"0"02A27
+\mchardef\plustrif"2"0"02A28
+\mchardef\commaminus"6"0"02A29
+\mchardef\minusdot"2"0"02A2A
+\mchardef\minusfdots"6"0"02A2B
+\mchardef\minusrdots"6"0"02A2C
+\mchardef\opluslhrim"2"0"02A2D
+\mchardef\oplusrhrim"2"0"02A2E
+\mchardef\vectimes"2"0"02A2F
+\mchardef\dottimes"2"0"02A30
+\mchardef\timesbar"3"0"02A31
+\mchardef\btimes"2"0"02A32
+\mchardef\smashtimes"6"0"02A33
+\mchardef\otimeslhrim"2"0"02A34
+\mchardef\otimesrhrim"2"0"02A35
+\mchardef\otimeshat"6"0"02A36
+\mchardef\Otimes"6"0"02A37
+\mchardef\odiv"2"0"02A38
+\mchardef\triangleplus"6"0"02A39
+\mchardef\triangleminus"6"0"02A3A
+\mchardef\triangletimes"6"0"02A3B
+\mchardef\intprod"2"0"02A3C
+\mchardef\intprodr"2"0"02A3D
+\mchardef\fcmp"2"0"02A3E
+\mchardef\amalg"2"0"02A3F
+\mchardef\capdot"6"0"02A40
+\mchardef\uminus"2"0"02A41
+\mchardef\barcup"6"0"02A42
+\mchardef\barcap"6"0"02A43
+\mchardef\capwedge"6"0"02A44
+\mchardef\cupvee"6"0"02A45
+\mchardef\cupovercap"6"0"02A46
+\mchardef\capovercup"6"0"02A47
+\mchardef\cupbarcap"6"0"02A48
+\mchardef\capbarcup"6"0"02A49
+\mchardef\twocups"6"0"02A4A
+\mchardef\twocaps"6"0"02A4B
+\mchardef\closedvarcup"6"0"02A4C
+\mchardef\closedvarcap"6"0"02A4D
+\mchardef\Sqcap"6"0"02A4E
+\mchardef\Sqcup"6"0"02A4F
+\mchardef\closedvarcupsmashprod"6"0"02A50
+\mchardef\wedgeodot"6"0"02A51
+\mchardef\veeodot"6"0"02A52
+\mchardef\Wedge"2"0"02A53
+\mchardef\Vee"2"0"02A54
+\mchardef\wedgeonwedge"2"0"02A55
+\mchardef\veeonvee"2"0"02A56
+\mchardef\bigslopedvee"6"0"02A57
+\mchardef\bigslopedwedge"6"0"02A58
+\mchardef\veeonwedge"6"0"02A59
+\mchardef\wedgemidvert"6"0"02A5A
+\mchardef\veemidvert"6"0"02A5B
+\mchardef\midbarwedge"6"0"02A5C
+\mchardef\midbarvee"6"0"02A5D
+\mchardef\doublebarwedge"2"0"02A5E
+\mchardef\wedgebar"2"0"02A5F
+\mchardef\wedgedoublebar"6"0"02A60
+\mchardef\varveebar"6"0"02A61
+\mchardef\doublebarvee"6"0"02A62
+\mchardef\veedoublebar"2"0"02A63
+\mchardef\dsub"2"0"02A64
+\mchardef\rsub"2"0"02A65
+\mchardef\eqdot"3"0"02A66
+\mchardef\dotequiv"3"0"02A67
+\mchardef\equivVert"6"0"02A68
+\mchardef\equivVvert"6"0"02A69
+\mchardef\dotsim"3"0"02A6A
+\mchardef\simrdots"6"0"02A6B
+\mchardef\simminussim"6"0"02A6C
+\mchardef\congdot"3"0"02A6D
+\mchardef\asteq"3"0"02A6E
+\mchardef\hatapprox"3"0"02A6F
+\mchardef\approxeqq"3"0"02A70
+\mchardef\eqqplus"3"0"02A71
+\mchardef\pluseqq"3"0"02A72
+\mchardef\eqqsim"3"0"02A73
+\mchardef\Coloneq"3"0"02A74
+\mchardef\eqeq"3"0"02A75
+\mchardef\eqeqeq"6"0"02A76
+\mchardef\ddotseq"3"0"02A77
+\mchardef\equivDD"3"0"02A78
+\mchardef\ltcir"3"0"02A79
+\mchardef\gtcir"3"0"02A7A
+\mchardef\ltquest"3"0"02A7B
+\mchardef\gtquest"3"0"02A7C
+\mchardef\leqslant"3"0"02A7D
+\mchardef\geqslant"3"0"02A7E
+\mchardef\lesdot"3"0"02A7F
+\mchardef\gesdot"3"0"02A80
+\mchardef\lesdoto"3"0"02A81
+\mchardef\gesdoto"3"0"02A82
+\mchardef\lesdotor"3"0"02A83
+\mchardef\gesdotol"3"0"02A84
+\mchardef\lessapprox"3"0"02A85
+\let\loa\lessapprox
+\mchardef\gtrapprox"3"0"02A86
+\let\goa\gtrapprox
+\mchardef\lneq"3"0"02A87
+\mchardef\gneq"3"0"02A88
+\mchardef\lnapprox"3"0"02A89
+\mchardef\gnapprox"3"0"02A8A
+\mchardef\lesseqqgtr"3"0"02A8B
+\mchardef\gtreqqless"3"0"02A8C
+\mchardef\lsime"3"0"02A8D
+\let\lse\lsime
+\mchardef\gsime"3"0"02A8E
+\let\gse\gsime
+\mchardef\lsimg"3"0"02A8F
+\mchardef\gsiml"3"0"02A90
+\mchardef\lgE"3"0"02A91
+\mchardef\glE"3"0"02A92
+\mchardef\lesges"3"0"02A93
+\mchardef\gesles"3"0"02A94
+\mchardef\eqslantless"3"0"02A95
+\mchardef\eqslantgtr"3"0"02A96
+\mchardef\elsdot"3"0"02A97
+\mchardef\egsdot"3"0"02A98
+\mchardef\eqqless"6"0"02A99
+\mchardef\eqqgtr"6"0"02A9A
+\mchardef\eqqslantless"3"0"02A9B
+\mchardef\eqqslantgtr"3"0"02A9C
+\mchardef\simless"3"0"02A9D
+\let\sol\simless
+\mchardef\simgtr"3"0"02A9E
+\let\sog\simgtr
+\mchardef\simlE"3"0"02A9F
+\mchardef\simgE"3"0"02AA0
+\mchardef\Lt"3"0"02AA1
+\mchardef\Gt"3"0"02AA2
+\mchardef\partialmeetcontraction"3"0"02AA3
+\mchardef\glj"3"0"02AA4
+\mchardef\gla"3"0"02AA5
+\mchardef\ltcc"3"0"02AA6
+\mchardef\gtcc"3"0"02AA7
+\mchardef\lescc"3"0"02AA8
+\mchardef\gescc"3"0"02AA9
+\mchardef\smt"3"0"02AAA
+\mchardef\lat"3"0"02AAB
+\mchardef\smte"3"0"02AAC
+\mchardef\late"3"0"02AAD
+\mchardef\bumpeqq"3"0"02AAE
+\mchardef\preceq"3"0"02AAF
+\mchardef\succeq"3"0"02AB0
+\mchardef\precneq"6"0"02AB1
+\mchardef\succneq"6"0"02AB2
+\mchardef\preceqq"3"0"02AB3
+\mchardef\succeqq"3"0"02AB4
+\mchardef\precneqq"3"0"02AB5
+\mchardef\succneqq"3"0"02AB6
+\mchardef\precapprox"3"0"02AB7
+\mchardef\succapprox"3"0"02AB8
+\mchardef\precnapprox"3"0"02AB9
+\mchardef\succnapprox"3"0"02ABA
+\mchardef\Prec"3"0"E35C
+\mchardef\Succ"3"0"02ABC
+\mchardef\subsetdot"3"0"02ABD
+\mchardef\supsetdot"3"0"02ABE
+\mchardef\subsetplus"3"0"02ABF
+\mchardef\supsetplus"3"0"02AC0
+\mchardef\submult"3"0"02AC1
+\mchardef\supmult"3"0"02AC2
+\mchardef\subedot"3"0"02AC3
+\mchardef\supedot"3"0"02AC4
+\mchardef\subseteqq"3"0"02AC5
+\mchardef\supseteqq"3"0"02AC6
+\mchardef\subsim"3"0"02AC7
+\mchardef\supsim"3"0"02AC8
+\mchardef\subsetapprox"6"0"02AC9
+\mchardef\supsetapprox"6"0"02ACA
+\mchardef\subsetneqq"3"0"02ACB
+\mchardef\supsetneqq"3"0"02ACC
+\mchardef\lsqhook"6"0"02ACD
+\mchardef\rsqhook"6"0"02ACE
+\mchardef\csub"3"0"02ACF
+\mchardef\csup"3"0"02AD0
+\mchardef\csube"3"0"02AD1
+\mchardef\csupe"3"0"02AD2
+\mchardef\subsup"3"0"02AD3
+\mchardef\supsub"3"0"02AD4
+\mchardef\subsub"3"0"02AD5
+\mchardef\supsup"3"0"02AD6
+\mchardef\suphsub"3"0"02AD7
+\mchardef\supdsub"3"0"02AD8
+\mchardef\forkv"3"0"02AD9
+\mchardef\topfork"3"0"02ADA
+\mchardef\mlcp"3"0"02ADB
+\mchardef\forks"3"0"02ADC
+\mchardef\forksnot"3"0"02ADD
+\mchardef\shortlefttack"6"0"02ADE
+\mchardef\shortdowntack"6"0"02ADF
+\mchardef\shortuptack"6"0"02AE0
+\mchardef\perps"0"0"02AE1
+\mchardef\vDdash"3"0"02AE2
+\mchardef\dashV"3"0"02AE3
+\mchardef\Dashv"3"0"02AE4
+\mchardef\DashV"6"0"02AE5
+\mchardef\varVdash"6"0"02AE6
+\mchardef\Barv"3"0"02AE7
+\mchardef\vBar"3"0"02AE8
+\mchardef\vBarv"3"0"02AE9
+\mchardef\barV"3"0"02AEA
+\mchardef\Vbar"3"0"02AEB
+\mchardef\Not"3"0"02AEC
+\mchardef\bNot"3"0"02AED
+\mchardef\revnmid"6"0"02AEE
+\mchardef\cirmid"6"0"02AEF
+\mchardef\midcir"6"0"02AF0
+\mchardef\topcir"0"0"02AF1
+\mchardef\nhpar"6"0"02AF2
+\mchardef\parsim"6"0"02AF3
+\mchardef\interleave"2"0"02AF4
+\mchardef\nhVvert"6"0"02AF5
+\mchardef\threedotcolon"2"0"02AF6
+\mchardef\lllnest"6"0"02AF7
+\mchardef\gggnest"6"0"02AF8
+\mchardef\leqqslant"3"0"02AF9
+\mchardef\geqqslant"3"0"02AFA
+\mchardef\trslash"2"0"02AFB
+\mchardef\biginterleave"1"0"02AFC
+\mchardef\sslash"2"0"02AFD
+\let\dslash\sslash
+\mchardef\talloblong"2"0"02AFE
+\mchardef\bigtalloblong"1"0"02AFF
+\mchardef\squaretopblack"0"0"02B12
+\mchardef\squarebotblack"0"0"02B13
+\mchardef\squareurblack"0"0"02B14
+\let\semaphorer\squareurblack
+\mchardef\squarellblack"0"0"02B15
+\let\semaphorel\squarellblack
+\mchardef\diamondleftblack"0"0"02B16
+\mchardef\diamondrightblack"0"0"02B17
+\mchardef\diamondtopblack"0"0"02B18
+\mchardef\diamondbotblack"0"0"02B19
+\mchardef\dottedsquare"0"0"02B1A
+\mchardef\pentagon"0"0"02B20
+\mchardef\varhexagon"0"0"02B21
+\mchardef\varhexagonblack"0"0"02B22
+\mchardef\hexagonblack"0"0"02B23
+\def\lbrbrak{\delim"4"0"03014 }
+\def\rbrbrak{\delim"5"0"03015 }
+\def\Lbrbrak{\delim"4"0"03018 }
+\def\Rbrbrak{\delim"5"0"03019 }
+\mchardef\hiraganano"0"0"0306E
+\mchardef\Alpha="7"0"0391
+\mchardef\Beta="7"0"0392
+\mchardef\Gamma="7"0"0393
+\mchardef\Delta="7"0"0394
+\mchardef\Epsilon="7"0"0395
+\mchardef\Zeta="7"0"0396
+\mchardef\Eta="7"0"0397
+\mchardef\varTheta="7"0"0398
+\mchardef\Iota="7"0"0399
+\mchardef\Kappa="7"0"039A
+\mchardef\Lambda="7"0"039B
+\mchardef\Mu="7"0"039C
+\mchardef\Nu="7"0"039D
+\mchardef\Xi="7"0"039E
+\mchardef\Omicron="7"0"039F
+\mchardef\Pi="7"0"03A0
+\mchardef\Rho="7"0"03A1
+\mchardef\Theta="7"0"03F4
+\mchardef\Sigma="7"0"03A3
+\mchardef\Tau="7"0"03A4
+\mchardef\Upsilon="7"0"03A5
+\mchardef\Phi="7"0"03A6
+\mchardef\Chi="7"0"03A7
+\mchardef\Psi="7"0"03A8
+\mchardef\Omega="7"0"03A9
+\mchardef\nabla="7"0"2207
+\mchardef\alpha="7"1"03B1
+\mchardef\beta="7"1"03B2
+\mchardef\gamma="7"1"03B3
+\mchardef\delta="7"1"03B4
+\mchardef\epsilon="7"1"03B5
+\mchardef\zeta="7"1"03B6
+\mchardef\eta="7"1"03B7
+\mchardef\theta="7"1"03B8
+\mchardef\iota="7"1"03B9
+\mchardef\kappa="7"1"03BA
+\mchardef\lambda="7"1"03BB
+\mchardef\mu="7"1"03BC
+\mchardef\nu="7"1"03BD
+\mchardef\xi="7"1"03BE
+\mchardef\omicron="7"1"03BF
+\mchardef\pi="7"1"03C0
+\mchardef\rho="7"1"03C1
+\mchardef\varsigma="7"1"03C2
+\mchardef\sigma="7"1"03C3
+\mchardef\tau="7"1"03C4
+\mchardef\upsilon="7"1"03C5
+\mchardef\varphi="7"1"03C6
+\mchardef\chi="7"1"03C7
+\mchardef\psi="7"1"03C8
+\mchardef\omega="7"1"03C9
+\mchardef\partial="7"1"2202
+\mchardef\varepsilon="7"1"03F5
+\mchardef\vartheta="7"1"03D1
+\mchardef\varkappa="7"1"03F0
+\mchardef\phi="7"1"03D5
+\mchardef\varrho="7"1"03F1
+\mchardef\varpi="7"1"03D6
